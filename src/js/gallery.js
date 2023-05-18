@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { refs } from './refs';
 
-const { galleryEl } = refs;
+const { galleryEl, observerGalleryEl } = refs;
 
 const URL = 'https://api.themoviedb.org/3/';
 const IMG_URL = 'https://image.tmdb.org/t/p/w500';
@@ -21,12 +21,22 @@ const searchParams = () =>
     page: page,
   });
 
+observerGalleryEl.style.display = 'none';
+
+let wasFirstFech = false;
+const options = {
+  rootMargin: '0px',
+  threshold: 0.1,
+};
+
+const galleryObserver = new IntersectionObserver(async entries => {}, options);
+galleryObserver.observe(observerGalleryEl);
+
 const trendingURL = `${URL}trending/movie/week?${searchParams()}`;
 
 const renderMovies = dataMovies => {
   galleryEl.innerHTML = '';
   dataMovies.forEach(movie => {
-    //   createBox(movie);
     const movieContainer = document.createElement('div');
     movieContainer.classList.add('gallery__movie-container');
     movieContainer.dataset.id = movie.id;
@@ -44,7 +54,6 @@ const fetchMovies = async url => {
     console.log(response);
     totalPages = response.data.total_pages;
     renderMovies(response.data.results);
-    // createPagination();
   } catch (error) {
     console.log(error);
   }
