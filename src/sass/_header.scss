@@ -1,9 +1,113 @@
 .header {
-  margin: auto;
-  max-width: 1280px;
-  padding: 10px;
-  background-color: aqua;
+  opacity: 90%;
+  background-image: url(../images/header-1/abstract-background-with-red-lines-320px.jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  min-height: 230px;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  padding: 37px 20px 47px;
+
+  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    background-image: url(../images/header-1/abstract-background-with-red-lines-320px@2x.jpg);
+  }
+  @media (min-device-pixel-ratio: 3), (min-resolution: 288dpi), (min-resolution: 3dppx) {
+    background-image: url(../images/header-1/abstract-background-with-red-lines-320px@3x.jpg);
+  }
+
+  @media screen and (min-width: 768px) {
+    padding: 40px 33px 45px;
+
+    background-image: url(../images/header-1/abstract-background-with-red-lines-768px.jpg);
+
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      background-image: url(../images/header-1/abstract-background-with-red-lines-768px@2x.jpg);
+    }
+    @media (min-device-pixel-ratio: 3), (min-resolution: 288dpi), (min-resolution: 3dppx) {
+      background-image: url(../images/header-1/abstract-background-with-red-lines-768px@3x.jpg);
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    background-image: url(../images/header-1/abstract-background-with-red-lines-1280px.jpg);
+
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      background-image: url(../images/header-1/abstract-background-with-red-lines-1280px@2x.jpg);
+    }
+    @media (min-device-pixel-ratio: 3), (min-resolution: 288dpi), (min-resolution: 3dppx) {
+      background-image: url(../images/header-1/abstract-background-with-red-lines-1280px@3x.jpg);
+    }
+  }
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    min-width: 100%;
+    height: 100%;
+    padding-bottom: 54px;
+  }
+  &__box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &-link {
+      display: none;
+      @media screen and (min-width: 768px) {
+        text-decoration: none;
+        font-size: 1.875rem;
+        line-height: 1.16;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        padding-left: 10px;
+        color: $background-color;
+      }
+    }
+  }
+  &__library {
+    opacity: 90%;
+    background-image: url(../images/header-2/Rectangle-320px.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 230px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 37px 20px 47px;
+
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      background-image: url(../images/header-2/Rectangle-320px@2x.jpg);
+    }
+    @media (min-device-pixel-ratio: 3), (min-resolution: 288dpi), (min-resolution: 3dppx) {
+      background-image: url(../images/header-2/Rectangle-320px@3x.jpg);
+    }
+
+    @media screen and (min-width: 768px) {
+      padding: 40px 33px 45px;
+
+      background-image: url(../images/header-2/Rectangle-768px.jpg);
+
+      @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+        background-image: url(../images/header-2/Rectangle-768px@2x.jpg);
+      }
+      @media (min-device-pixel-ratio: 3), (min-resolution: 288dpi), (min-resolution: 3dppx) {
+        background-image: url(../images/header-2/Rectangle-768px@3x.jpg);
+      }
+    }
+
+    @media screen and (min-width: 1280px) {
+      background-image: url(../images/header-2/Rectangle-1280px.jpg);
+
+      @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+        background-image: url(../images/header-2/Rectangle-1280px@2x.jpg);
+      }
+      @media (min-device-pixel-ratio: 3), (min-resolution: 288dpi), (min-resolution: 3dppx) {
+        background-image: url(../images/header-2/Rectangle-1280px@3x.jpg);
+      }
+    }
+  }
 }
