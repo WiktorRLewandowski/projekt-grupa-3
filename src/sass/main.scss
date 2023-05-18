@@ -5,3 +5,10 @@
 
 // Style dla pliku z przykładem HTML fragmentu
 @import './example';
+@import './header';
+@import './gallery';
+@import './footer';
+
+p {
+  margin: 0;
+}
