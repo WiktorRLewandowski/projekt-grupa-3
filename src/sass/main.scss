@@ -14,7 +14,6 @@
 @import './modal';
 @import './partials/btn';
 
-
 * {
   padding: 0;
   margin: 0;
@@ -35,7 +34,7 @@ body {
   color: $background-color;
 }
 .header {
-  opacity: 90%;
+  // opacity: 90%;
 }
 .svg__wrapper {
   max-width: 24px;
@@ -150,6 +149,10 @@ body {
     border: none;
     filter: drop-shadow(0px 8px 43px rgba(255, 107, 1, 0.6));
   }
+}
+.hidden {
+  display: none;
+  transform: 0.6s;
 }
 // .gallery {
 //   width: 100vw;
