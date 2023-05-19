@@ -1,0 +1,24 @@
+.btn {
+  &__search {
+    position: absolute;
+    right: 0px;
+    bottom: 1px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  &__wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    padding-top: 12px;
+    @media screen and (min-width: 768px) {
+      gap: 2rem;
+    }
+    @media screen and (min-width: 1280) {
+      gap: 1rem;
+    }
+  }
+}
