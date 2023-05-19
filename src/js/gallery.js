@@ -1,7 +1,11 @@
-import axios from 'axios';
+// import axios from 'axios';
 import { refs } from './refs';
+import { fetchMovies } from './fetchMovies';
+// import { renderMovies } from './renderMovies';
 
 const { galleryEl, observerGalleryEl } = refs;
+
+observerGalleryEl.style.display = 'none';
 
 const URL = 'https://api.themoviedb.org/3/';
 const IMG_URL = 'https://image.tmdb.org/t/p/w500';
@@ -21,8 +25,6 @@ const searchParams = () =>
     page: page,
   });
 
-observerGalleryEl.style.display = 'none';
-
 let wasFirstFetch = false;
 const options = {
   rootMargin: '0px',
@@ -34,53 +36,42 @@ galleryObserver.observe(observerGalleryEl);
 
 const trendingURL = `${URL}trending/movie/week?${searchParams()}`;
 
-const renderMovies = dataMovies => {
-  galleryEl.innerHTML = '';
-  dataMovies.forEach(movie => {
-    const movieContainer = document.createElement('div');
-    movieContainer.classList.add('gallery__movie-container');
-    movieContainer.dataset.id = movie.id;
-    movieContainer.innerHTML = `
-  <img class="gallery__movie-poster" src="${IMG_URL}${movie.poster_path}"/>
-  <h3 class="gallery__movie-title">${movie.title}</h3>
-  <p class="gallery__movie-genres">${movie.genre_ids}</p>`;
-    galleryEl.appendChild(movieContainer);
-    
-    
-    const imageButtons = movieContainer.querySelectorAll(".gallery__movie-poster");
-    imageButtons.forEach(imageButton => {
-      imageButton.addEventListener("click", () => imageButtonClick(movie));
-    });
-  });
-};
+// export const renderMovies = dataMovies => {
+//   galleryEl.innerHTML = '';
+//   dataMovies.forEach(movie => {
+//     const movieContainer = document.createElement('div');
+//     movieContainer.classList.add('gallery__movie-container');
+//     movieContainer.dataset.id = movie.id;
+//     movieContainer.innerHTML = `
+//   <img class="gallery__movie-poster" src="${IMG_URL}${movie.poster_path}"/>
+//   <h3 class="gallery__movie-title">${movie.title}</h3>
+//   <p class="gallery__movie-genres">${movie.genre_ids}</p>`;
+//     galleryEl.appendChild(movieContainer);
+//   });
+// };
 
+// const fetchMovies = async url => {
+//   try {
+//     const response = await axios.get(url);
+//     console.log(response);
+//     totalPages = response.data.total_pages;
+//     renderMovies(response.data.results);
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
 
-function imageButtonClick(movie) {
-  const modal = document.querySelector("#modal");
-  modal.innerHTML = `
-    <div class="modal">
-      <h3 class="gallery__movie-title">${movie.title}</h3>
-      <button type="button" class="button__modal">Close</button>
-    </div>`;
-const buttonModal = document.querySelector(".button__modal");
-const buttonModalClick = (event) => {
-  modal.innerHTML = " ";
-}
-buttonModal.addEventListener("click", buttonModalClick);
-}
-
-
-
-const fetchMovies = async url => {
-  try {
-    const response = await axios.get(url);
-    console.log(response);
-    totalPages = response.data.total_pages;
-    renderMovies(response.data.results);
-  } catch (error) {
-    console.log(error);
-  }
-};
+// setTimeout(() => {
+//   observerGalleryEl.style.display = 'initial';
+// }, 1000);
 
 fetchMovies(trendingURL);
 
+////////////////// ZOSTAWIAM DLA PODGLĄDU - FETCHOWANIE LISTY GENRES -- START ////////////
+
+// fetch(`https://api.themoviedb.org/3/genre/movie/list?${searchParams()}`)
+//   .then(response => response.json())
+//   .then(response => console.log(response))
+//   .catch(err => console.error(err));
+
+////////////////// ZOSTAWIAM DLA PODGLĄDU - FETCHOWANIE LISTY GENRES -- END ////////////
