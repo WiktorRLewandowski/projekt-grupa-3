@@ -1,0 +1,56 @@
+<article class="header__library">
+  <div class="header__container">
+    <div class="header__box">
+      <div class="svg__wrapper">
+        <a href="./index.html">
+          <svg class="movie__svg">
+            <use href="../src/images/svg/film.svg#film"></use>
+          </svg>
+        </a>
+      </div>
+      <a class="header__box-link" href="index.html">Filmoteka</a>
+    </div>
+    <nav class="navigation">
+      <ul class="navigation__list">
+        <li>
+          <a class="navigation__link" href="../src/index.html">home</a>
+        </li>
+        <li>
+          <a class="navigation__link navigation__link--library" href="../src/my-library.html"
+            >my library</a
+          >
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div class="btn__wrapper">
+    <button class="button__search">Watched</button>
+    <button class="button__search">queue</button>
+  </div>
+  <picture>
+    <source
+      media="(min-width: 1280px)"
+      srcset="
+        ./images/header-2/Rectangle-1280px.jpg    1x,
+        ./images/header-2/Rectangle-1280px@2x.jpg 2x,
+        ./images/header-2/Rectangle-1280px@3x.jpg 3x
+      "
+    />
+    <source
+      media="(min-width: 768px)"
+      srcset="
+        ./images/header-2/Rectangle-768px.jpg    1x,
+        ./images/header-2/Rectangle-768px@2x.jpg 2x,
+        ./images/header-2/Rectangle-768px@3x.jpg 3x
+      "
+    />
+    <source
+      srcset="
+        ./images/header-2/Rectangle-320px.jpg    1x,
+        ./images/header-2/Rectangle-320px@2x.jpg 2x,
+        ./images/header-2/Rectangle-320px@3x.jpg 3x
+      "
+      alt="header-background"
+    />
+  </picture>
+</article>

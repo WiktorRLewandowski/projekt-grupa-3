@@ -1,13 +1,28 @@
 .footer {
-  max-width: 1280px;
-  padding: 10px;
-  background-color: aqua;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   position: fixed;
-  bottom: 0px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
+  bottom: 0;
+  min-width: 100vw;
+  // min-height: 180px;
+  background-color: $color-footer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &__list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.625rem;
+  }
+  &-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 29px 0;
+    @media screen and (min-width: 768px) {
+      flex-direction: row;
+    }
+  }
 }
