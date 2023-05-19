@@ -5,7 +5,7 @@
   "homepage": "https://wiktorrlewandowski.github.io/projekt-grupa-3/",
   "scripts": {
     "dev": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url projekt-grupa-3"
+    "build": "parcel build src/*.html --public-url /projekt-grupa-3/"
   },
   "repository": {
     "type": "git",
