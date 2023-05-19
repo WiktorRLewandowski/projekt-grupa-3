@@ -23,7 +23,7 @@ const searchParams = () =>
 
 observerGalleryEl.style.display = 'none';
 
-let wasFirstFech = false;
+let wasFirstFetch = false;
 const options = {
   rootMargin: '0px',
   threshold: 0.1,
