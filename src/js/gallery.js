@@ -43,33 +43,34 @@ const renderMovies = dataMovies => {
     movieContainer.innerHTML = `
   <img class="gallery__movie-poster" src="${IMG_URL}${movie.poster_path}"/>
   <h3 class="gallery__movie-title">${movie.title}</h3>
-  <p class="gallery__movie-genres">${movie.genre_ids}</p>`;
+  <div class="gallery-movie__info">
+      <ul class="gallery-movie__list">
+        <li gallery-movie__list-item><p class="gallery__movie-genres">${movie.genre_ids}</p></li>
+        <li gallery-movie__list-item><span class="gallery__movie-rating">${movie.vote_average}</span></li>
+      </ul>
+  </div>`;
     galleryEl.appendChild(movieContainer);
-    
-    
-    const imageButtons = movieContainer.querySelectorAll(".gallery__movie-poster");
+
+    const imageButtons = movieContainer.querySelectorAll('.gallery__movie-poster');
     imageButtons.forEach(imageButton => {
-      imageButton.addEventListener("click", () => imageButtonClick(movie));
+      imageButton.addEventListener('click', () => imageButtonClick(movie));
     });
   });
 };
 
-
 function imageButtonClick(movie) {
-  const modal = document.querySelector("#modal");
+  const modal = document.querySelector('#modal');
   modal.innerHTML = `
     <div class="modal">
       <h3 class="gallery__movie-title">${movie.title}</h3>
       <button type="button" class="button__modal">Close</button>
     </div>`;
-const buttonModal = document.querySelector(".button__modal");
-const buttonModalClick = (event) => {
-  modal.innerHTML = " ";
+  const buttonModal = document.querySelector('.button__modal');
+  const buttonModalClick = event => {
+    modal.innerHTML = ' ';
+  };
+  buttonModal.addEventListener('click', buttonModalClick);
 }
-buttonModal.addEventListener("click", buttonModalClick);
-}
-
-
 
 const fetchMovies = async url => {
   try {
@@ -83,4 +84,3 @@ const fetchMovies = async url => {
 };
 
 fetchMovies(trendingURL);
-
