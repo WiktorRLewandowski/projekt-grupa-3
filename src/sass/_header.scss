@@ -3,7 +3,9 @@
   background-image: url(../images/header-1/abstract-background-with-red-lines-320px.jpg);
   background-repeat: no-repeat;
   background-size: 100%;
-  min-height: 230px;
+  min-width: 100%;
+  z-index: 1000;
+  transform: 0.6s;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -47,6 +49,7 @@
     flex-direction: row;
     min-width: 100%;
     height: 100%;
+    transition: 0.6s;
     padding-bottom: 54px;
   }
   &__box {
@@ -108,6 +111,18 @@
       @media (min-device-pixel-ratio: 3), (min-resolution: 288dpi), (min-resolution: 3dppx) {
         background-image: url(../images/header-2/Rectangle-1280px@3x.jpg);
       }
+    }
+  }
+  &__fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 20 33px;
+    opacity: 1;
+
+    &-container {
+      padding: 0px;
+      transform: 0.6s;
     }
   }
 }
