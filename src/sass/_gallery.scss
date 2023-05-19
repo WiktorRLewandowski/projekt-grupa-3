@@ -39,9 +39,13 @@
   }
 
   &__movie-title {
+    color: #000;
+    
     font-size: 12px;
     text-transform: uppercase;
     font-weight: 500;
+
+    padding-top: 12px;
   }
 
   &__movie-genres {
@@ -89,6 +93,11 @@
   .gallery {
     // max-width: 1280px;
     grid-template-columns: repeat(3, 1fr);
+    &__movie-title {
+      // font-family: 'Roboto', sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+    }
 
     // .gallery__movie-container {
       // max-width: calc((100% / 3) - 16px);
@@ -96,5 +105,6 @@
       // height: 634px;
         // background-color: red;
     // }
+
   }
 }
