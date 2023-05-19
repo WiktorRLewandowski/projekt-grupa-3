@@ -4,30 +4,38 @@
 
 .gallery {
   padding-top: 60px;
-  margin: auto;
-  // max-width: 1280px;
-  display: flex;
-  gap: 32px 16px;
-  flex-direction: column;
+  padding-inline: 32px;
+  margin: 0 auto;
+  max-width: 1280px;
+  display: grid;
+  grid-gap: 32px 16px;
+
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
   // background-color: aquamarine;
   margin-bottom: 50px;
+  
 
   &__movie-container {
-    width: 280px;
-    height: 443px;
+    transition: transform 250ms ease-in-out;
+    // width: 280px;
+    // height: 443px;
     //   background-color: red;
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.01);
+      border-radius: 5px;
+    }
   }
   &__movie-poster {
     object-fit: cover;
     display: block;
     width: 100%;
-    height: 402px;
+    // height: 402px;
     border-radius: 5px;
-    cursor: pointer;
+    // cursor: pointer;
     // background-color: red;
+    
   }
 
   &__movie-title {
@@ -42,59 +50,51 @@
     // font-style: normal;
     font-weight: 500;
     font-size: 12px;
-    line-height: 24px;
+    // line-height: 24px;
   }
 }
 
 @media screen and (min-width: 768px) {
   .gallery {
-    max-width: 768px;
+    // max-width: 768px;
     // background-color: red;
+    grid-template-columns: repeat(2, 1fr);
 
     flex-direction: row;
 
-    justify-content: center;
+    // justify-content: center;
     // justify-content: flex-start;
-    align-items: center;
+    // align-items: center;
     // flex-wrap: wrap;
 
-    &__movie-container {
-      width: 336px;
-      height: 495px;
+    // &__movie-container {
+      // width: 336px;
+      // height: 495px;
       // background-color: red;
-    }
+    // }
 
     &__movie-poster {
       object-fit: cover;
       display: block;
-      width: 100%;
-      height: 455px;
+      // width: 100%;
+      // height: 455px;
       border-radius: 5px;
-      cursor: pointer;
+      // cursor: pointer;
       // background-color: red;
     }
   }
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1180px) {
   .gallery {
-    max-width: 1280px;
+    // max-width: 1280px;
+    grid-template-columns: repeat(3, 1fr);
 
-    .gallery__movie-container {
+    // .gallery__movie-container {
       // max-width: calc((100% / 3) - 16px);
-      width: 395px;
-      height: 634px;
-      //   background-color: red;
-    }
-
-    &__movie-poster {
-      object-fit: cover;
-      display: block;
-      width: 100%;
-      height: 574px;
-      border-radius: 5px;
-      cursor: pointer;
-      // background-color: red;
-    }
+      // width: 395px;
+      // height: 634px;
+        // background-color: red;
+    // }
   }
 }
