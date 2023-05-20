@@ -5,7 +5,7 @@
   background-size: 100% 100%;
   width: 100%;
   z-index: 1000;
-  transform: 0.6s;
+  transition: 0.6s;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -115,11 +115,9 @@
   }
   &__fixed {
     position: fixed;
-    top: 0;
-    left: 0;
-    padding: 20 33px;
+    padding: 10px 20px;
     opacity: 1;
-
+    border-radius: 10px;
     &-container {
       padding: 0px;
       transform: 0.6s;

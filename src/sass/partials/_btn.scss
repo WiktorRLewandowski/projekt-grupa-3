@@ -1,8 +1,8 @@
 .btn {
   &__search {
     position: absolute;
+    padding: 3px;
     right: 0px;
-    bottom: 1px;
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -14,11 +14,24 @@
     gap: 1.25rem;
     flex-wrap: wrap;
     padding-top: 12px;
-    @media screen and (min-width: 768px) {
-      gap: 2rem;
-    }
-    @media screen and (min-width: 1280) {
-      gap: 1rem;
+    &-form {
+      transition: 0.6s;
+      flex-direction: column;
+      justify-content: center;
+      @media screen and (min-width: 768px) {
+        gap: 2rem;
+      }
+      @media screen and (min-width: 1280px) {
+        gap: 1rem;
+      }
+      align-items: center;
+      gap: 0;
+      @media screen and (min-width: 768px) {
+        gap: 0;
+      }
+      @media screen and (min-width: 1280px) {
+        gap: 0;
+      }
     }
   }
 }
