@@ -46,5 +46,60 @@ export const renderMovies = dataMovies => {
     <h3 class="gallery__movie-title">${movie.title}</h3>
     <p class="gallery__movie-genres">${idToGenre(movie.genre_ids)}</p>`;
     galleryEl.appendChild(movieContainer);
+    
+    const imageButtons = movieContainer.querySelectorAll(".gallery__movie-poster");
+    imageButtons.forEach(imageButton => {
+      imageButton.addEventListener("click", () => imageButtonClick(movie));
+    });
   });
+
+  function imageButtonClick(movie) {
+    const modal = document.querySelector("#modal");
+    modal.innerHTML = `
+      <div class="modal modal-content">
+      <button type="button" class="button-modal-close">
+      <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="11"
+      height="11"
+      viewBox="0 0 11 11"
+      fill="none"
+    >
+      <path
+        d="M11 1.10786L9.89214 0L5.5 4.39214L1.10786 0L0 1.10786L4.39214 5.5L0 9.89214L1.10786 11L5.5 6.60786L9.89214 11L11 9.89214L6.60786 5.5L11 1.10786Z"
+        fill="black"
+      />
+    </svg>
+    </button>
+      <img class="modal-content__movie-poster" src="${IMG_URL}${movie.poster_path}"/>
+        <h3 class="modal-content__movie-title">${movie.title}</h3>
+        <div class="modal-content__list">
+        <ul class="modal-content__list modal-content__list-description">
+        <li>Vote / Votes</li>
+        <li>Popularity</li>
+        <li>Original Title</li>
+        <li>Genre</li>
+        </ul>
+        <ul class="modal-content__list modal-content__list-results">
+        <li>${movie.vote_average} / ${movie.vote_count}</li>
+        <li>${movie.popularity}</li>
+        <li><span class="modal-content__text-transform">${movie.original_title}</span></li>
+        <li>${idToGenre(movie.genre_ids)}</li>
+        </ul>
+        </div>
+        <h4 class="modal-content__movie-about">About</h4>
+        <p class="modal-content__text">${movie.overview}</p>
+        <div class="button-modal">
+      <button type="button" class="button-modal__watched">add to watched</button>
+      <button type="button" class="button-modal__queue">add to queue</button>
+      </div>
+      </div>`;
+      modal.classList.toggle("is-hidden-modal");
+  const buttonModal = document.querySelector(".button-modal-close");
+  const buttonModalClick = (event) => {
+    modal.innerHTML = " ";
+    modal.classList.toggle("is-hidden-modal");
+  }
+  buttonModal.addEventListener("click", buttonModalClick);
+  }
 };

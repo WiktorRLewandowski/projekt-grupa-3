@@ -1,14 +1,138 @@
 .modal {
-    margin: auto;
-    height: 500px;
-    width: 500px;
-    max-width: 1280px;
-    padding: 10px;
-    background-color: pink;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    }
+    max-width: 280px;
+    background-color: white;
+    position: relative;
+    visibility: visible;
+    overflow: scroll;
+    opacity: 1;
+    top: 60px;
+    padding: 48px 20px;
+    transition: opacity 250ms ease;
+    border-radius: 4px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+      0px 2px 1px rgba(0, 0, 0, 0.2);
+  }
 
+  .modal-content {
+    color: black;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    align-items: start;
+    &__movie-poster {
+        object-fit: contain;
+        display: block;
+        width: 100%;
+        height: 357px;
+        border-radius: 5px;
+    }
+&__movie-title {
+    line-height: 1.17;
+    font-weight: 500;
+    padding-top: 20px;
+}
+&__list {
+    list-style: none;
+    line-height: 1.33;
+    font-weight: 500;
+    font-size: 12px;
+    text-transform: none;
+    padding-top: 20px;
+    display: flex;
+    row-gap: 8px;
+}
+&__list-description {
+    color: rgba(140, 140, 140, 1);
+    flex-direction: column;
+    min-width: 100px;
+    padding-top: 0;
+}
+&__list-results {
+    flex-direction: column;
+    padding-top: 0;
+}
+&__text-transform {
+    text-transform: uppercase;
+}
+&__text {
+text-transform: none;
+padding-top: 8px;
+padding-bottom: 20px;
+    }
+&__movie-about {
+        line-height: 1.33;
+        padding-top: 20px;
+    }
+  }
+
+    .backdrop-modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        list-style: none;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        background-color: rgba(0, 0, 0, 0.2);
+        background-size: cover;
+        transform: scale(1);
+        visibility: visible;
+        opacity: 1;
+        transition: opacity 250ms ease;
+        z-index: 20;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      
+      .is-hidden-modal {
+        pointer-events: none;
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 250ms ease;
+      }
+      
+      .button-modal-close {
+        position: absolute;
+        background: none;
+        border-style: none;
+        top: 8px;
+        right: 8px;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &:hover,
+        &:focus {
+          cursor: pointer;
+        }
+      }
+
+      .button-modal {
+        top: 8px;
+        right: 8px;
+        width: 100%;
+        height: 30px;
+        display: flex;
+        gap: 30px;
+        justify-content: space-between; 
+        &__watched {
+            background-color: rgba(255, 107, 1, 1);
+            border-style: none;
+            padding: 5px;
+            border-radius: 10;
+        }
+        &__queue {
+            background: none;
+            border-style: solid;
+            border-color: black;
+            padding: 5px;
+            border-radius: 10;
+        }
+      }
+
+      
+      
   
 
