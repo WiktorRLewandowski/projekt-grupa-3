@@ -14,7 +14,16 @@ window.addEventListener('scroll', () => {
 
 refs.formEl.addEventListener('submit', (ev) => {
   ev.preventDefault();
+  refs.errorEl.innerHTML = '';
   fetchSearch(refs.searchEl.value)
-  .then(data => renderMovies(data.results))
+  .then(data => {
+    
+    if(data.results.length === 0) {
+      refs.errorEl.innerHTML = 'SEARCH RESULT NOT SUCCESSFUL. ENTER THE CORRECT MOVIE NAME'
+    }
+
+    console.log(data.results);
+    renderMovies(data.results);
+  })
   .catch(error => console.log(error))
 });
