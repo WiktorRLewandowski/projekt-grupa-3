@@ -73,20 +73,24 @@ export const renderMovies = dataMovies => {
     </button>
       <img class="modal-content__movie-poster" src="${IMG_URL}${movie.poster_path}"/>
         <h3 class="modal-content__movie-title">${movie.title}</h3>
-        <div class="modal-content__list">
-        <ul class="modal-content__list modal-content__list-description">
+        <ul class="modal-content__list">
+        <div class="modal-content__list-box-1">
         <li>Vote / Votes</li>
-        <li>Popularity</li>
-        <li>Original Title</li>
-        <li>Genre</li>
-        </ul>
-        <ul class="modal-content__list modal-content__list-results">
-        <li>${movie.vote_average} / ${movie.vote_count}</li>
-        <li>${movie.popularity}</li>
-        <li><span class="modal-content__text-transform">${movie.original_title}</span></li>
-        <li>${idToGenre(movie.genre_ids)}</li>
-        </ul>
+        <li class="modal-content__list-result"><span class="text-transform-1">${Math.round(movie.vote_average).toFixed(1)}</span> / ${movie.vote_count}</li>
         </div>
+        <div class="modal-content__list-box-2">
+        <li>Popularity</li>
+        <li class="modal-content__list-result">${Math.round(movie.popularity).toFixed(1)}</li>
+        </div>
+        <div class="modal-content__list-box-3">
+        <li class="text-transform-li">Original Title</li>
+        <li class="modal-content__list-result"><span class="text-transform-2">${movie.original_title}</span></li>
+        </div>
+        <div class="modal-content__list-box-4">
+        <li>Genre</li>
+        <li class="modal-content__list-result">${idToGenre(movie.genre_ids)}</li>
+        </div>
+        </ul>
         <h4 class="modal-content__movie-about">About</h4>
         <p class="modal-content__text">${movie.overview}</p>
         <div class="button-modal">
