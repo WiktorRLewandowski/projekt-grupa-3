@@ -36,12 +36,12 @@ const galleryObserver = new IntersectionObserver(async entries => {
   if (entries[0].isIntersecting) {
     console.log('obserwuje');
     if (page < totalPages) {
+      page += 1;
       if (fetchSearchFlag) {
-        fetchSearch = `${URL}search/movie?${searchParams()}`;
-        await fetchSearch();
-        return;
+        // fetchSearch = `${URL}search/movie?${searchParams()}`;
+        // await fetchSearch();
+        // return;
       } else {
-        page += 1;
         const fetchTrending = `${URL}trending/movie/week?${searchParams()}`;
         await fetchMovies(fetchTrending);
       }
