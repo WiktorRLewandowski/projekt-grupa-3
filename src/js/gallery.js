@@ -5,7 +5,6 @@ import { fetchMovies } from './fetchMovies';
 import { totalPages } from './fetchMovies';
 import { fetchSearchFlag } from './fetchMovies';
 import { fetchSearch } from './fetchMovies';
-
 const { galleryEl, observerGalleryEl } = refs;
 
 observerGalleryEl.style.display = 'none';
@@ -38,7 +37,7 @@ const galleryObserver = new IntersectionObserver(async entries => {
     console.log('obserwuje');
     if (page < totalPages) {
       if (fetchSearchFlag) {
-        const fetchSearchURL = `${URL}search/movie?${searchParams()}`;
+        fetchSearch = `${URL}search/movie?${searchParams()}`;
         await fetchSearch();
         return;
       } else {
