@@ -1,5 +1,6 @@
 .modal {
     max-width: 280px;
+    max-height: 500px;
     background-color: white;
     position: relative;
     visibility: visible;
@@ -20,6 +21,7 @@
     margin: 0;
     align-items: start;
     font-family: 'Roboto';
+    overflow-wrap: break-word;
     &__movie-poster {
         object-fit: contain;
         width: 100%;
@@ -41,12 +43,14 @@
     row-gap: 8px;
     color: rgba(140, 140, 140, 1);
     flex-direction: column;
+    flex-wrap: wrap;
     min-width: 150px;
     padding-top: 0;
 
 }
 &__list-result {
   color: black;
+  max-width: 130px;
 }
 &__list-box-1 {
   display: flex;
@@ -58,29 +62,29 @@
   display: flex;
   flex-direction: row;
   gap: 53px;
-  padding-top: 8px;
 }
 &__list-box-3 {
   display: flex;
   flex-direction: row;
   gap: 39px;
-  padding-top: 8px;
 }
 &__list-box-4 {
   display: flex;
   flex-direction: row;
   gap: 76px;
-  padding-top: 8px;
 }
 
 &__text {
 text-transform: none;
 padding-top: 8px;
 padding-bottom: 20px;
+line-height: 1.66;
+
     }
 &__movie-about {
         line-height: 1.33;
         padding-top: 20px;
+        font-weight: inherit;
     }
   }
 
@@ -88,13 +92,19 @@ padding-bottom: 20px;
 .text-transform-1 {
     background-color: rgba(255, 107, 1, 1);
     color: white;
-    border-style: solid;
+    height: 16px;
+    padding: 1px 10px;
+    border-radius: 5px;
+  }
+  .text-transform-2 {
+    background-color: rgba(247, 247, 247, 1);
+    ;
     height: 16px;
     padding: 1px 10px;
     border-radius: 5px;
   }
 
-  .text-transform-2 {
+.text-transform-3 {
     text-transform: uppercase;
 }
 .text-transform-li {
@@ -178,7 +188,80 @@ padding-bottom: 20px;
         }
       }
 
+.lock-scroll {
+  overflow: hidden;
+}
+
+.lock-scroll-modal-open {
+  position: fixed;
+  width: 100%;
+}
       
-      
-  
+      @media screen and (min-width: 768px) {
+        .modal {
+        max-width: 704px;
+        min-height: 452px;
+        padding: 40px 72px 52px 368px;
+        overflow-x: hidden;
+        }
+        .modal-content {
+          &__movie-poster {
+              width: auto;
+              max-height: 373.55px;
+              position: absolute;
+              left: 36px;
+          }
+          &__movie-title {
+            padding-top: 0;
+        }
+        &__list-result {
+          max-width: 190px;
+        }
+      }
+
+    .button-modal {
+      width: 265px;
+      gap: 0;
+      &__watched {
+          padding: 6px 6px;
+          width: 125px;
+      }
+      &__queue {
+          width: 125px;
+      }
+    }
+  }
+    @media screen and (min-width: 1280px) {
+      .modal {
+      max-width: 806px;
+      min-height: 558px;
+      padding: 40px 12px 40px 363px;
+      overflow: auto;
+      }
+      .modal-content {
+        &__movie-poster {
+          width: fit-content;  
+          max-height: none;
+          height: 478px;
+            position: absolute;
+            left: 12px;
+            object-fit: fill;
+        }
+        &__movie-title {
+          line-height: 1.16;
+          font-size: 30;
+      }
+    }
+    .button-modal {
+      width: 287px;
+      gap: 0;
+      &__watched {
+          width: 136px;
+      }
+      &__queue {
+          width: 136px;
+      }
+    }
+  }
+    
 
