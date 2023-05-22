@@ -7,17 +7,27 @@ const IMG_URL = 'https://image.tmdb.org/t/p/w300';
 
 const idToGenre = genresArray => {
   let genresList = '';
-  genresArray.forEach(
-    id =>
-      (genresList += `${
-        genres.filter(genre => {
-          //   console.log(genre);
-          return genre.id === id;
-        })[0].name
-      }, `),
-  );
+  genresArray.forEach(id => (genresList += `${genres.filter(genre => genre.id === id)[0].name},`));
+  genresList = genresList.slice(0, -2);
   return genresList;
 };
+
+/////////// ZOSTAWIAM DLA PODGLĄDU STARA WERSJA idToGenre - START ///////////
+// const idToGenre = genresArray => {
+//   let genresList = '';
+//   genresArray.forEach(
+//     id =>
+//       (genresList += `${
+//         genres.filter(genre => {
+//           //   console.log(genre);
+//           return genre.id === id;
+//         })[0].name
+//       }, `),
+//   );
+//   genresList = genresList.slice(0, -2);
+//   return genresList;
+// };
+/////////// ZOSTAWIAM DLA PODGLĄDU STARA WERSJA idToGenre - END ///////////
 
 ///////////// ZOSTAWIAM DLA PODGLĄDU CO DOSTAJEMY po kazdym foreach'u  - START /////////
 // const idToGenre = genresArray => {
@@ -44,7 +54,8 @@ export const renderMovies = dataMovies => {
     movieContainer.innerHTML = `
     <img class="gallery__movie-poster" src="${IMG_URL}${movie.poster_path}"/>
     <h3 class="gallery__movie-title">${movie.title}</h3>
-    <p class="gallery__movie-genres">${idToGenre(movie.genre_ids)}</p>`;
+    <p class="gallery__movie-genres">
+    ${idToGenre(movie.genre_ids)} | ${movie.release_date.slice(0, 4)}</p>`;
     galleryEl.appendChild(movieContainer);
 
     const imageButtons = movieContainer.querySelectorAll('.gallery__movie-poster');
