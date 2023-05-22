@@ -7,7 +7,7 @@ const IMG_URL = 'https://image.tmdb.org/t/p/w300';
 
 const idToGenre = genresArray => {
   let genresList = '';
-  genresArray.forEach(id => (genresList += `${genres.filter(genre => genre.id === id)[0].name},`));
+  genresArray.forEach(id => (genresList += `${genres.filter(genre => genre.id === id)[0].name}, `));
   genresList = genresList.slice(0, -2);
   return genresList;
 };
