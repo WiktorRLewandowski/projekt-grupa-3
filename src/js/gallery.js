@@ -15,6 +15,7 @@ const KEY = '79ea8908d5d0aaabd49d601dd35d503a';
 const LANG = 'en-US';
 export let page = 1;
 let queryValue = '';
+let whatToFetch = 'trending/movie/week?';
 
 const searchParams = () =>
   new URLSearchParams({
@@ -42,7 +43,7 @@ const galleryObserver = new IntersectionObserver(async entries => {
         // await fetchSearch();
         // return;
       } else {
-        const fetchTrending = `${URL}trending/movie/week?${searchParams()}`;
+        const fetchTrending = `${URL}${whatToFetch}${searchParams()}`;
         await fetchMovies(fetchTrending);
       }
     }
