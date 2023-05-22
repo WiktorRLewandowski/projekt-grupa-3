@@ -2,6 +2,9 @@
 import { refs } from './refs';
 import { fetchMovies } from './fetchMovies';
 // import { renderMovies } from './renderMovies';
+import { totalPages } from './fetchMovies';
+import { fetchSearchFlag } from './fetchMovies';
+import { fetchSearch } from './fetchMovies';
 
 const { galleryEl, observerGalleryEl } = refs;
 
@@ -11,9 +14,7 @@ const URL = 'https://api.themoviedb.org/3/';
 const IMG_URL = 'https://image.tmdb.org/t/p/w500';
 const KEY = '79ea8908d5d0aaabd49d601dd35d503a';
 const LANG = 'en-US';
-
-let page = 1;
-let totalPages = 0;
+export let page = 1;
 let queryValue = '';
 
 const searchParams = () =>
@@ -25,13 +26,30 @@ const searchParams = () =>
     page: page,
   });
 
-let wasFirstFetch = false;
+// let wasFirstFetch = false;
 const options = {
-  rootMargin: '0px',
-  threshold: 0.1,
+  // rootMargin: '0px',
+  // threshold: 0.1,
+  rootMargin: '550px',
 };
 
-const galleryObserver = new IntersectionObserver(async entries => {}, options);
+const galleryObserver = new IntersectionObserver(async entries => {
+  if (entries[0].isIntersecting) {
+    console.log('obserwuje');
+    if (page < totalPages) {
+      if (fetchSearchFlag) {
+        const fetchSearchURL = `${URL}search/movie?${searchParams()}`;
+        await fetchSearch();
+        return;
+      } else {
+        page += 1;
+        const fetchTrending = `${URL}trending/movie/week?${searchParams()}`;
+        await fetchMovies(fetchTrending);
+      }
+    }
+  }
+}, options);
+
 galleryObserver.observe(observerGalleryEl);
 
 const trendingURL = `${URL}trending/movie/week?${searchParams()}`;
@@ -61,9 +79,9 @@ const trendingURL = `${URL}trending/movie/week?${searchParams()}`;
 //   }
 // };
 
-// setTimeout(() => {
-//   observerGalleryEl.style.display = 'initial';
-// }, 1000);
+setTimeout(() => {
+  observerGalleryEl.style.display = 'initial';
+}, 1000);
 
 fetchMovies(trendingURL);
 
