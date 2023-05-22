@@ -1,16 +1,14 @@
 .btn {
   &__search {
     position: absolute;
-    padding: 3px;
     right: 0px;
     background-color: transparent;
     border: none;
-    cursor: pointer;
+    color: $background-color;
   }
   &__wrapper {
     width: 100%;
     display: flex;
-    justify-content: center;
     gap: 1.25rem;
     flex-wrap: wrap;
     padding-top: 12px;
