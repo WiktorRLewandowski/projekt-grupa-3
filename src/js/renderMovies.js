@@ -3,7 +3,7 @@ import { genres } from './genres';
 
 const { galleryEl, observerGalleryEl } = refs;
 
-const IMG_URL = 'https://image.tmdb.org/t/p/w300';
+const IMG_URL = 'https://image.tmdb.org/t/p/w500';
 
 const idToGenre = genresArray => {
   let genresList = '';
