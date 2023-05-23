@@ -35,7 +35,7 @@ body {
   padding-bottom: 75px;
 }
 // .header {
-  // opacity: 90%;
+// opacity: 90%;
 // }
 .svg__wrapper {
   max-width: 24px;
@@ -51,6 +51,9 @@ body {
 .navigation {
   display: flex;
   justify-content: space-between;
+  &__fixed {
+    display: none;
+  }
 }
 .label__movie {
   background-color: transparent;
@@ -152,8 +155,10 @@ body {
   }
 }
 .hidden {
-  display: none;
-  transform: 0.6s;
+  justify-content: end;
+  align-items: end;
+  transition: 0.6s;
+  padding: 0;
 }
 // .gallery {
 //   width: 100vw;

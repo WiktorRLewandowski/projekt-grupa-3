@@ -1,11 +1,12 @@
 .header {
+  position: fixed;
   opacity: 90%;
   background-image: url(../images/header-1/abstract-background-with-red-lines-320px.jpg);
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: cover;
   width: 100%;
   z-index: 1000;
-  transform: 0.6s;
+  transition: 0.6s;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -115,12 +116,12 @@
   }
   &__fixed {
     position: fixed;
-    top: 0;
-    left: 0;
-    padding: 20 33px;
+    flex-direction: row;
+    padding: 10px 20px;
     opacity: 1;
-
+    border-radius: 10px;
     &-container {
+      min-width: auto;
       padding: 0px;
       transform: 0.6s;
     }
