@@ -105,8 +105,6 @@ export const renderMovies = dataMovies => {
         </div>
         <div class="modal-content__list-box-3">
         <li class="text-transform-li">Original Title</li>
-
-        <li class="modal-content__list-result"><span class="text-transform-2">${movie.original_title}</span></li>
         <li class="modal-content__list-result"><span class="text-transform-3">${movie.original_title}</span></li>
         </div>
         <div class="modal-content__list-box-4">
