@@ -3,7 +3,7 @@ import { genres } from './genres';
 
 const { galleryEl, observerGalleryEl } = refs;
 
-const IMG_URL = 'https://image.tmdb.org/t/p/w300';
+const IMG_URL = 'https://image.tmdb.org/t/p/w500';
 
 const idToGenre = genresArray => {
   let genresList = '';
@@ -51,8 +51,14 @@ export const renderMovies = dataMovies => {
     const movieContainer = document.createElement('div');
     movieContainer.classList.add('gallery__movie-container');
     movieContainer.dataset.id = movie.id;
+    let moviePoster = '';
+    if (movie.poster_path === null) {
+      moviePoster = 'https://cdn.pixabay.com/photo/2016/06/01/00/01/sad-1428080_960_720.png';
+    } else {
+      moviePoster = `${IMG_URL}${movie.poster_path}`;
+    }
     movieContainer.innerHTML = `
-    <img class="gallery__movie-poster" src="${IMG_URL}${movie.poster_path}"/>
+    <img class="gallery__movie-poster" src="${moviePoster}"/>
     <h3 class="gallery__movie-title">${movie.title}</h3>
     <p class="gallery__movie-genres">
     ${idToGenre(movie.genre_ids)} | ${movie.release_date.slice(0, 4)}</p>`;
