@@ -1,12 +1,15 @@
 import { refs } from './refs';
 import { imageButtonClick } from './modal'; //importujemy funkcję, żeby użyć jej w tym pliku
-import { idToGenre} from './genres'
+import { idToGenre } from './genres';
 
-const { galleryEl, observerGalleryEl } = refs;
+const { galleryEl } = refs;
+
+/////////////////// CIEKAWOSTKA - START ///////////////////////
+// galleryEl.style.backgroundImage = `url(${require('../images/demo.jpg')})`; // działa w parcelu
+// galleryEl.style.backgroundImage = 'url(../images/demo.jpg)';               // działa w vanilla
+/////////////////// CIEKAWOSTKA - END ///////////////////////
 
 const IMG_URL = 'https://image.tmdb.org/t/p/w500';
-
-
 
 /////////// ZOSTAWIAM DLA PODGLĄDU STARA WERSJA idToGenre - START ///////////
 // const idToGenre = genresArray => {
@@ -49,12 +52,15 @@ export const renderMovies = dataMovies => {
     movieContainer.dataset.id = movie.id;
     let moviePoster = '';
     if (movie.poster_path === null) {
-      moviePoster = './images/poster-none.png'; //ok, czemu to nie działa xd
+      // moviePoster = './images/poster-none.png';
+      // moviePoster = `url(${require('../images/poster-none.png')})`;
+      moviePoster = new URL('../images/poster-none.png', import.meta.url);
     } else {
       moviePoster = `${IMG_URL}${movie.poster_path}`;
     }
     movieContainer.innerHTML = `
-    <img class="gallery__movie-poster" src="${moviePoster}" alt="${movie.title} poster" width="500" height="auto"/>
+    <img class="gallery__movie-poster" src="${moviePoster}" alt="${movie.title} poster" 
+    width="500" height="auto"/>
     <h3 class="gallery__movie-title">${movie.title}</h3>
     <p class="gallery__movie-genres">
     ${idToGenre(movie.genre_ids)} | ${movie.release_date.slice(0, 4)}</p>`;
