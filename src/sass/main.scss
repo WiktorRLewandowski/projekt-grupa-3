@@ -14,6 +14,7 @@
 @import './modal';
 @import './partials/btn';
 @import './scrollbar';
+@import './loader';
 
 * {
   padding: 0;
@@ -117,10 +118,10 @@ button {
   justify-content: center;
   align-items: center;
 }
-.footer {
+// .footer {
   // max-width: 100vw;
   // min-height: 180px;
-}
+// }
 .list {
   &-wrapper {
     padding-top: 10px;
