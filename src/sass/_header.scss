@@ -102,6 +102,12 @@
     height: 100%;
     transition: 0.6s;
     padding-bottom: 54px;
+    &--padding {
+      padding: 0;
+      @media screen and (min-width: 360px) {
+        padding-bottom: 54px;
+      }
+    }
   }
   &__box {
     display: flex;
