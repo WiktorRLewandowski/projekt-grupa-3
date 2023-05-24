@@ -78,7 +78,7 @@ button {
     position: relative;
     color: $background-color;
     transition: 250ms;
-    @media screen and (min-width: 320px) {
+    @media screen and (min-width: 360px) {
       min-width: 280px;
       min-height: 20px;
     }
