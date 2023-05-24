@@ -1,0 +1,16 @@
+::-webkit-scrollbar {
+  width: 1em;
+  height: 1em;
+}
+::-webkit-scrollbar-track {
+  background: hsla(0, 32%, 90%, 0.678);
+  border-radius: 100vw;
+  margin-block: 0.5em;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(229, 35%, 29%);
+  border: 0.17em solid hsla(0, 32%, 90%, 0.678);
+  background-image: url(../images/header-1/abstract-background-with-red-lines-320px.jpg);
+
+  border-radius: 100vw;
+}

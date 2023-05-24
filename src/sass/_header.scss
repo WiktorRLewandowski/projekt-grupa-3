@@ -13,76 +13,76 @@
     padding: 2.31rem 1.25rem 2.9375rem;
     opacity: 90%;
     width: 100%;
-    background-image: url(../images/header-1/abstract-background-with-red-lines-320px.jpg);
+    background-image: url(../images/header-1/webP/abstract-background-with-red-lines320.webp);
     background-repeat: no-repeat;
     background-size: 100% 100%;
 
     @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
-      background-image: url(../images/header-1/abstract-background-with-red-lines-320px@2x.jpg);
+      background-image: url(../images/header-1/webP/abstract-background-with-red-lines320@2x.webp);
     }
     @media (min-device-pixel-ratio: 3), (min-resolution: 288dpi), (min-resolution: 3dppx) {
-      background-image: url(../images/header-1/abstract-background-with-red-lines-320px@3x.jpg);
+      background-image: url(../images/header-1/webP/abstract-background-with-red-lines320@3x.webp);
     }
 
     @media screen and (min-width: 768px) {
       padding: 2.5rem 2.1rem 2.81rem;
 
-      background-image: url(../images/header-1/abstract-background-with-red-lines-768px.jpg);
+      background-image: url(../images/header-1/webP/abstract-background-with-red-lines768.webp);
 
       @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
-        background-image: url(../images/header-1/abstract-background-with-red-lines-768px@2x.jpg);
+        background-image: url(../images/header-1/webP/abstract-background-with-red-lines768@2x.webp);
       }
       @media (min-device-pixel-ratio: 3), (min-resolution: 288dpi), (min-resolution: 3dppx) {
-        background-image: url(../images/header-1/abstract-background-with-red-lines-768px@3x.jpg);
+        background-image: url(../images/header-1/webP/abstract-background-with-red-lines768@3x.webp);
       }
     }
 
     @media screen and (min-width: 1280px) {
       max-width: 1280px;
-      background-image: url(../images/header-1/abstract-background-with-red-lines-1280px.jpg);
+      background-image: url(../images/header-1/webP/abstract-background-with-red-lines1280.webp);
 
       @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
-        background-image: url(../images/header-1/abstract-background-with-red-lines-1280px@2x.jpg);
+        background-image: url(../images/header-1/webP/abstract-background-with-red-lines1280@2x.webp);
       }
       @media (min-device-pixel-ratio: 3), (min-resolution: 288dpi), (min-resolution: 3dppx) {
-        background-image: url(../images/header-1/abstract-background-with-red-lines-1280px@3x.jpg);
+        background-image: url(../images/header-1/webP/abstract-background-with-red-lines1280@3x.webp);
       }
     }
     &__library {
       opacity: 90%;
-      background-image: url(../images/header-2/Rectangle-320px.jpg);
+      background-image: url(../images/header-2/webP/Rectangle320.webp);
       background-repeat: no-repeat;
       background-size: 100% 100%;
       padding: 2.31rem 1.25rem 2.9375rem;
 
       @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
-        background-image: url(../images/header-2/Rectangle-320px@2x.jpg);
+        background-image: url(../images/header-2/webP/Rectangle320@2x.webp);
       }
       @media (min-device-pixel-ratio: 3), (min-resolution: 288dpi), (min-resolution: 3dppx) {
-        background-image: url(../images/header-2/Rectangle-320px@3x.jpg);
+        background-image: url(../images/header-2/webP/Rectangle320@3x.webp);
       }
 
       @media screen and (min-width: 768px) {
         padding: 2.5rem 2.1rem 2.81rem;
 
-        background-image: url(../images/header-2/Rectangle-768px.jpg);
+        background-image: url(../images/header-2/webP/Rectangle768.webp);
 
         @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
-          background-image: url(../images/header-2/Rectangle-768px@2x.jpg);
+          background-image: url(../images/header-2/webP/Rectangle768@2x.webp);
         }
         @media (min-device-pixel-ratio: 3), (min-resolution: 288dpi), (min-resolution: 3dppx) {
-          background-image: url(../images/header-2/Rectangle-768px@3x.jpg);
+          background-image: url(../images/header-2/webP/Rectangle768@3x.webp);
         }
       }
 
       @media screen and (min-width: 1280px) {
-        background-image: url(../images/header-2/Rectangle-1280px.jpg);
+        background-image: url(../images/header-2/webP/Rectangle1280.webp);
 
         @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
-          background-image: url(../images/header-2/Rectangle-1280px@2x.jpg);
+          background-image: url(../images/header-2/webP/Rectangle1280@2x.webp);
         }
         @media (min-device-pixel-ratio: 3), (min-resolution: 288dpi), (min-resolution: 3dppx) {
-          background-image: url(../images/header-2/Rectangle-1280px@3x.jpg);
+          background-image: url(../images/header-2/webP/Rectangle1280@3x.webp);
         }
       }
     }
