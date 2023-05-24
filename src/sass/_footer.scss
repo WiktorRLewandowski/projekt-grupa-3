@@ -2,7 +2,7 @@
   position: fixed;
   bottom: 0;
   width: 100%;
-  background-color: $color-footer;
+  padding: 0 1.25rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,6 +15,7 @@
   }
   &-wrapper {
     width: 100%;
+    background-color: $color-footer;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -22,6 +23,9 @@
     padding: 8px 0;
     @media screen and (min-width: 768px) {
       flex-direction: row;
+    }
+     @media screen and (min-width: 1280px) {
+      max-width: 1280px;
     }
   }
 }
