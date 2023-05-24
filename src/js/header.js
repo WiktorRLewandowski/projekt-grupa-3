@@ -1,5 +1,5 @@
 import { refs } from './refs';
-import { fetchSearch } from './fetchMovies';
+import { fetchMovies, fetchSearch, fetchTrending } from './fetchMovies';
 import { renderMovies } from './renderMovies';
 
 window.addEventListener('scroll', () => {
@@ -22,9 +22,8 @@ refs.formEl.addEventListener('submit', ev => {
     .then(data => {
       if (data.results.length === 0) {
         refs.errorEl.innerHTML = 'SEARCH RESULT NOT SUCCESSFUL. ENTER THE CORRECT MOVIE NAME';
+        fetchTrending();
       }
-
-      console.log(data.results);
       renderMovies(data.results);
     })
     .catch(error => console.log(error));

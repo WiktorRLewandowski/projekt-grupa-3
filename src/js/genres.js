@@ -19,3 +19,10 @@ export const genres = [
   { id: 10752, name: 'War' },
   { id: 37, name: 'Western' },
 ];
+
+export const idToGenre = genresArray => {
+  let genresList = '';
+  genresArray.forEach(id => (genresList += `${genres.filter(genre => genre.id === id)[0].name}, `));
+  genresList = genresList.slice(0, -2);
+  return genresList;
+};
