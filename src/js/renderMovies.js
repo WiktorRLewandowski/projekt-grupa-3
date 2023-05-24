@@ -53,7 +53,6 @@ export const renderMovies = dataMovies => {
     let moviePoster = '';
     if (movie.poster_path === null) {
       // moviePoster = './images/poster-none.png';
-      // moviePoster = `url(${require('../images/poster-none.png')})`;
       moviePoster = new URL('../images/poster-none.png', import.meta.url);
     } else {
       moviePoster = `${IMG_URL}${movie.poster_path}`;
