@@ -77,13 +77,13 @@
       }
 
       @media screen and (min-width: 1280px) {
-        background-image: url(../images/header-2/webP/Rectangle1280.webp);
+        background-image: url(../images/header-2/Rectangle-1280px.png);
 
         @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
-          background-image: url(../images/header-2/webP/Rectangle1280@2x.webp);
+          background-image: url(../images/header-2/Rectangle-1280px@2x.png);
         }
         @media (min-device-pixel-ratio: 3), (min-resolution: 288dpi), (min-resolution: 3dppx) {
-          background-image: url(../images/header-2/webP/Rectangle1280@3x.webp);
+          background-image: url(../images/header-2/Rectangle-1280px@3x.png);
         }
       }
     }
