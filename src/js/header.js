@@ -8,7 +8,7 @@ console.log(header);
 window.addEventListener('scroll', () => {
   let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
   if (scrollTop > lastScrollTop) {
-    header.style.top = '-227px';
+    header.style.top = '-228px';
   } else {
     header.style.top = '0';
   }
