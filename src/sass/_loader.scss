@@ -1,0 +1,61 @@
+.loader {
+    position: fixed;
+    z-index: 100000000;
+    width: 100%;
+    height: 100vh;
+    background-color: #fff;
+    opacity: 1;
+    // padding: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 500ms, visibility 500ms;
+}
+
+.loader-hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.container {
+   position: relative;
+}
+
+/* .projector {
+    opacity: 0.8;
+} */
+
+.bobbin-little {
+    position: absolute;
+    top: -9px;
+    left:0;
+
+    /* opacity: 0.8; */
+
+    animation-name: spin;
+    animation-duration: 2000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.bobbin-big {
+    position: absolute;
+    top: -20px;
+    right: 30px;
+
+    /* opacity: 0.8; */
+
+    animation-name: spin;
+    animation-duration: 5000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}

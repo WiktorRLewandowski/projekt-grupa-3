@@ -9,11 +9,22 @@
   max-width: 1280px;
   display: grid;
   grid-gap: 32px 16px;
-
   justify-content: center;
   align-items: center;
   // background-color: aquamarine;
   margin-bottom: 50px;
+  @media screen and (min-width: 260px) {
+    padding-top: 15rem;
+  }
+  @media screen and (min-width: 350px) {
+    padding-top: 16.46rem;
+  }
+  @media screen and (min-width: 768px) {
+    padding-top: 17.92rem;
+  }
+  @media screen and (min-width: 1280px) {
+    padding-top: 17.92rem;
+  }
 
   &__movie-container {
     transition: transform 250ms ease-in-out;
