@@ -58,10 +58,13 @@ export function imageButtonClick(movie) {
       </div>
       </div>`;
   modal.classList.remove('is-hidden-modal');
+  modal.addEventListener('click', handleEvent);
 
   const buttonModal = document.querySelector('.button-modal-close');
   buttonModal.addEventListener('click', handleEvent);
   disableScroll();
+
+  window.addEventListener('keydown', handleEvent);
 
   // add to watched btn -->
   addWatchedClick();
@@ -120,8 +123,6 @@ export function imageButtonClick(movie) {
   }
 }
 
-window.addEventListener('keydown', handleEvent);
-
 let scrollPosition = 0;
 const body = document.body;
 
@@ -140,6 +141,7 @@ function handleEvent(event) {
     modal.innerHTML = '';
     modal.classList.add('is-hidden-modal');
     enableScroll();
+    window.removeEventListener('keydown', handleEvent);
   }
 }
 
