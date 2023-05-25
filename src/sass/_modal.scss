@@ -4,7 +4,7 @@
     background-color: white;
     position: relative;
     visibility: visible;
-    overflow: scroll;
+    overflow: auto;
     opacity: 1;
     top: 60px;
     padding: 48px 20px;
@@ -194,7 +194,7 @@ line-height: 1.66;
 }
 
 .lock-scroll-modal-open {
-  position: fixed;
+  position: relative;
   width: 100%;
 }
       
