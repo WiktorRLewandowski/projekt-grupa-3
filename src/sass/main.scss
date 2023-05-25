@@ -65,9 +65,9 @@ button {
 .navigation {
   display: flex;
   justify-content: space-between;
-  &__fixed {
-    display: none;
-  }
+  // &__fixed {
+  //   display: none;
+  // }
 }
 .label__movie {
   background-color: transparent;
@@ -172,12 +172,12 @@ button {
     filter: drop-shadow(0px 8px 43px rgba(255, 107, 1, 0.6));
   }
 }
-.hidden {
-  justify-content: end;
-  align-items: end;
-  transition: 0.6s;
-  padding: 0;
-}
+// .hidden {
+//   justify-content: end;
+//   align-items: end;
+//   transition: 0.6s;
+//   padding: 0;
+// }
 // .gallery {
 //   width: 100vw;
 //   display: flex;
