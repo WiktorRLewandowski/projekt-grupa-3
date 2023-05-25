@@ -61,7 +61,7 @@ export function imageButtonClick(movie) {
   modal.addEventListener('click', handleEvent);
 
   const buttonModal = document.querySelector('.button-modal-close');
-  buttonModal.addEventListener('click', handleEvent);
+  buttonModal.addEventListener('click', handleModalClose);
   disableScroll();
 
   window.addEventListener('keydown', handleEvent);
@@ -134,6 +134,13 @@ function disableScroll() {
 function enableScroll() {
   body.classList.remove('lock-scroll', 'lock-scroll-modal-open');
   window.scrollTo(0, scrollPosition);
+}
+
+function handleModalClose() {
+  modal.innerHTML = '';
+  modal.classList.add('is-hidden-modal');
+  enableScroll();
+  window.removeEventListener('keydown', handleEvent);
 }
 
 function handleEvent(event) {
