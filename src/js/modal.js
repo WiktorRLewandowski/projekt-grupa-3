@@ -61,7 +61,7 @@ export function imageButtonClick(movie) {
   modal.addEventListener('click', handleEvent);
 
   const buttonModal = document.querySelector('.button-modal-close');
-  buttonModal.addEventListener('click', handleEvent);
+  buttonModal.addEventListener('click', handleModalClose);
   disableScroll();
 
   window.addEventListener('keydown', handleEvent);
@@ -136,18 +136,27 @@ function enableScroll() {
   window.scrollTo(0, scrollPosition);
 }
 
+function handleModalClose() {
+  modal.innerHTML = '';
+  modal.classList.add('is-hidden-modal');
+  enableScroll();
+  window.removeEventListener('keydown', handleEvent);
+}
+
 function handleEvent(event) {
-  if (event.type === 'click' || (event.type === 'keydown' && event.key === 'Escape')) {
+  if (
+    event.type === 'click' &&
+    event.target.closest('.modal-content') === null &&
+    event.target.closest('.button-modal-close') === null
+  ) {
+    modal.innerHTML = '';
+    modal.classList.add('is-hidden-modal');
+    enableScroll();
+    window.removeEventListener('keydown', handleEvent);
+  } else if (event.type === 'keydown' && event.key === 'Escape') {
     modal.innerHTML = '';
     modal.classList.add('is-hidden-modal');
     enableScroll();
     window.removeEventListener('keydown', handleEvent);
   }
 }
-
-refs.galleryEl.addEventListener('click', ev => {
-  if (ev.target.matches('figure')) {
-    console.log(ev.target.dataset.id);
-  }
-  console.log(ev.target);
-});
