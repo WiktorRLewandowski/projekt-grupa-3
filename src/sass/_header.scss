@@ -17,10 +17,10 @@
     background-size: 100% 100%;
 
     @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
-      background-image: url(../images/header-1/webP/abstract-background-with-red-lines320@2x.webp);
+      background-image: url(../images/header-1/Frame320@2x.png);
     }
     @media (min-device-pixel-ratio: 3), (min-resolution: 288dpi), (min-resolution: 3dppx) {
-      background-image: url(../images/header-1/webP/abstract-background-with-red-lines320@3x.webp);
+      background-image: url(../images/header-1/Frame320@3x.png);
     }
 
     @media screen and (min-width: 768px) {
@@ -29,10 +29,10 @@
       background-image: url(../images/header-1/Frame786.png);
 
       @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
-        background-image: url(../images/header-1/webP/abstract-background-with-red-lines768@2x.webp);
+        background-image: url(../images/header-1/Frame768@2x.png);
       }
       @media (min-device-pixel-ratio: 3), (min-resolution: 288dpi), (min-resolution: 3dppx) {
-        background-image: url(../images/header-1/webP/abstract-background-with-red-lines768@3x.webp);
+        background-image: url(../images/header-1/Frame768@3x.png);
       }
     }
 
@@ -48,28 +48,28 @@
       }
     }
     &__library {
-      background-image: url(../images/header-2/webP/Rectangle320.webp);
+      background-image: url(../images/header-2/Rectangle320.png);
       background-repeat: no-repeat;
       background-size: 100% 100%;
       padding: 2.31rem 1.25rem 2.9375rem;
 
       @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
-        background-image: url(../images/header-2/webP/Rectangle320@2x.webp);
+        background-image: url(../images/header-2/Rectangle320@2x.png);
       }
       @media (min-device-pixel-ratio: 3), (min-resolution: 288dpi), (min-resolution: 3dppx) {
-        background-image: url(../images/header-2/webP/Rectangle320@3x.webp);
+        background-image: url(../images/header-2/Rectangle320@3x.png);
       }
 
       @media screen and (min-width: 768px) {
         padding: 2.5rem 2.1rem 2.81rem;
 
-        background-image: url(../images/header-2/webP/Rectangle768.webp);
+        background-image: url(../images/header-2/Rectangle768.png);
 
         @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
-          background-image: url(../images/header-2/webP/Rectangle768@2x.webp);
+          background-image: url(../images/header-2/Rectangle768@2x.png);
         }
         @media (min-device-pixel-ratio: 3), (min-resolution: 288dpi), (min-resolution: 3dppx) {
-          background-image: url(../images/header-2/webP/Rectangle768@3x.webp);
+          background-image: url(../images/header-2/Rectangle768@3x.png);
         }
       }
 
