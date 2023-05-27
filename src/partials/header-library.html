@@ -17,7 +17,10 @@
             <a class="navigation__link" href="../src/index.html">home</a>
           </li>
           <li>
-            <a class="navigation__link navigation__link--library" href="../src/my-library.html"
+            <a
+              id="lib-link"
+              class="navigation__link navigation__link--library"
+              href="../src/my-library.html"
               >my library</a
             >
           </li>
@@ -32,7 +35,7 @@
       <source
         media="(min-width: 1280px)"
         srcset="
-          ./images/header-2/Rectangle-1280px.png    1x,
+          ./images/header-2/Rectangle-1280px.png 1x,
           ./images/header-2/Rectangle1280@2x.png 2x,
           ./images/header-2/Rectangle1280@3x.png 3x
         "
@@ -40,7 +43,7 @@
       <source
         media="(min-width: 768px)"
         srcset="
-          ./images/header-2/Rectangle768.png    1x,
+          ./images/header-2/Rectangle768.png     1x,
           ./images/header-2/Rectangle1280@2x.png 2x,
           ./images/header-2/Rectangle1280@3x.png 3x
         "
@@ -48,8 +51,8 @@
       <source
         srcset="
           ./images/header-2/Rectangle320.png    1x,
-          ./images/header-2/Rectangle320@2x.png  2x,
-          ./images/header-2/Rectangle320@3x.png  3x
+          ./images/header-2/Rectangle320@2x.png 2x,
+          ./images/header-2/Rectangle320@3x.png 3x
         "
         alt="header-background"
       />

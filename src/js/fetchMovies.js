@@ -16,7 +16,7 @@ export const fetchMovies = async url => {
     const response = await axios.get(url);
     totalPages = response.data.total_pages;
     console.log(totalPages);
-    console.log(response.data)
+    console.log(response.data);
     renderMovies(response.data.results);
   } catch (error) {
     console.log(error);
@@ -39,9 +39,17 @@ export const fetchSearch = async (query, page) => {
   return response.data;
 };
 
+// working fetchID -->
 export const fetchID = async id => {
-  const response = await axios.get(`movie/${id}`);
+  const response = await axios.get(`${URL}movie/${id}`, {
+    params: {
+      api_key: KEY,
+      language: LANG,
+      include_adult: false,
+    },
+  });
   const data = await response.data;
+  console.log(data);
   return data;
 };
 
@@ -51,7 +59,8 @@ export const fetchTrending = async () => {
       api_key: KEY,
       language: LANG,
       include_adult: false,
-}},)
+    },
+  });
   const data = await response.data;
-  renderMovies(data.results)
-} // tak było mi szybciej załadować trending na nieudanym wyszukiwaniu
+  renderMovies(data.results);
+}; // tak było mi szybciej załadować trending na nieudanym wyszukiwaniu
