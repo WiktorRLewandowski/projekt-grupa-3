@@ -3,6 +3,8 @@
   width: 100%;
   z-index: 10;
   transition: 0.6s;
+  transition-timing-function: ease-in-out;
+  transition-delay: 250ms;
   display: flex;
   flex-direction: column;
   justify-content: center;
