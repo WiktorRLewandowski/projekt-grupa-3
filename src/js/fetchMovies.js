@@ -16,7 +16,7 @@ export const fetchMovies = async url => {
     const response = await axios.get(url);
     totalPages = response.data.total_pages;
     console.log(totalPages);
-    console.log(response.data)
+    console.log(response.data);
     renderMovies(response.data.results);
   } catch (error) {
     console.log(error);
@@ -38,6 +38,7 @@ export const fetchSearch = async (query, page) => {
   console.log(totalPages);
   return response.data;
 };
+
 
 //do wyszukania pełnego info o filmie wystarczy samo ID np. fetchID(603692) i dalej obsługa promise'a (.then().catch()) 
 //-- wyszuka info o John Wick4
@@ -83,3 +84,4 @@ export const fetchTrending = async () => {
 } // tak było mi szybciej załadować trending na nieudanym wyszukiwaniu
 
 // fetchID(603692, true).then(data => console.log(data)).catch(error=>console.log(error))
+

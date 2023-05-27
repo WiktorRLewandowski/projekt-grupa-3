@@ -1,2 +1,3 @@
 import './sass/main.scss';
-import './js/gallery-library';
+import './js/renderMovies';
+import './js/library';
