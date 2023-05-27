@@ -50,6 +50,7 @@ export const renderMovies = dataMovies => {
     const movieContainer = document.createElement('figure');
     movieContainer.classList.add('gallery__movie-container');
     movieContainer.dataset.id = movie.id;
+
     let moviePoster = '';
     if (movie.poster_path === null) {
       // moviePoster = './images/poster-none.png';
@@ -57,12 +58,27 @@ export const renderMovies = dataMovies => {
     } else {
       moviePoster = `${IMG_URL}${movie.poster_path}`;
     }
+
+    let genresList = '';
+    if (movie.genre_ids.length === 0) {
+      genresList = 'No genres assigned';
+    } else {
+      genresList = idToGenre(movie.genre_ids);
+    }
+
+    let releaseDate = '';
+    if (movie.release_date === '') {
+      releaseDate = 'No release date assigned';
+    } else {
+      releaseDate = movie.release_date.slice(0, 4);
+    }
+
     movieContainer.innerHTML = `
     <img class="gallery__movie-poster" src="${moviePoster}" alt="${movie.title} poster" 
     width="500" height="auto"/>
     <h3 class="gallery__movie-title">${movie.title}</h3>
     <p class="gallery__movie-genres">
-    ${idToGenre(movie.genre_ids)} | ${movie.release_date.slice(0, 4)}</p>`;
+    ${genresList} <i class="fa-sharp fa-solid fa-video"></i> ${releaseDate}</p>`;
     galleryEl.appendChild(movieContainer);
 
     const imageButtons = movieContainer.querySelectorAll('.gallery__movie-poster');
