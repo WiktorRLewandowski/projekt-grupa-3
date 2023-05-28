@@ -54,8 +54,10 @@ export const fetchID = async (id, video) => {
     }
   });
   const data = await response.data;
+  console.log(data);
   console.log(video)
   return data;
+
 };
 
 // export const fetchVideo = async id => {

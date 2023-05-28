@@ -23,9 +23,31 @@
     font-family: 'Roboto';
     overflow-wrap: break-word;
     &__movie-poster {
-        object-fit: contain;
-        width: 100%;
-        border-radius: 5px;
+      object-fit: contain;
+      position: relative;
+      width: 100%;
+      border-radius: 5px;
+      z-index: 1;
+      &:hover,
+      &:focus {
+        cursor: pointer;
+      }
+    }
+    &__movie-poster-container::after {
+      content: '';
+      position: absolute;
+      width: 15%;
+      top: 43%;
+      left: 49%;
+      transform: translate(-50%, -50%);
+      padding: 30px;
+      border-radius: 2px;
+      z-index: 2;
+      overflow: visible;
+      cursor: pointer;
+      background-image: url('../images/svg/play2.svg');
+      background-repeat: no-repeat;
+      background-size: cover;
     }
 &__movie-title {
     line-height: 1.17;
@@ -212,6 +234,12 @@ line-height: 1.66;
               position: absolute;
               left: 36px;
           }
+          &__movie-poster-container::after {
+            width: 15%;
+            top: 50%;
+            left: 22%;
+            padding: 60px;
+          }
           &__movie-title {
             padding-top: 0;
         }
@@ -247,6 +275,29 @@ line-height: 1.66;
             position: absolute;
             left: 12px;
             object-fit: fill;
+        }
+        &__movie-poster-container::after {
+          content: '';
+          position: absolute;
+          width: 15%;
+          top: 50%;
+          left: 20%;
+          transform: translate(-50%, -50%);
+          padding: 75px;
+          border-radius: 2px;
+          z-index: 2;
+          visibility: hidden;
+          overflow: visible;
+          cursor: pointer;
+          transition: opacity 0.5s ease-in-out;
+          opacity: 0;
+          background-image: url('../images/svg/play2.svg');
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+        &__movie-poster-container:hover::after {
+          visibility: visible;
+          opacity: 1;
         }
         &__movie-title {
           line-height: 1.16;
