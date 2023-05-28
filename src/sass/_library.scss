@@ -1,26 +1,40 @@
-.container {
-  display: flex;
+.library-watched,
+.library-queue {
+  padding-top: 17.92rem;
+  padding-inline: 32px;
+  margin: 0 auto;
+  max-width: 1280px;
+  height: 100vh;
+  display: grid;
+  grid-gap: 32px 16px;
   justify-content: center;
-  align-content: center;
-  // padding-top: 18rem;
+  align-items: center;
+  // background-color: aquamarine;
+  margin-bottom: 50px;
+  @media screen and (min-width: 260px) {
+    padding-top: 15rem;
+  }
+  @media screen and (min-width: 350px) {
+    padding-top: 16.46rem;
+  }
+  @media screen and (min-width: 768px) {
+    padding-top: 17.92rem;
+  }
+  @media screen and (min-width: 1280px) {
+    padding-top: 17.92rem;
+  }
 }
 
-// .library-empty-img {
-//     margin: 0 auto;
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//     justify-content: center;
-//   }
-
   .library-text {
+    text-align: center;
     color: black;
+    &__link {
+      color: $color-film-genre;
+      text-decoration: underline;
+    }
   }
 
   .is-hidden {
     display: none;
   }
 
-  // .travolta-gif {
-
-  // }
