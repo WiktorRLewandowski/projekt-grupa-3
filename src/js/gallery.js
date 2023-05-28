@@ -1,10 +1,11 @@
 // import axios from 'axios';
 import { refs } from './refs';
 import { fetchMovies } from './fetchMovies';
-// import { renderMovies } from './renderMovies';
+import { renderMovies } from './renderMovies';
 import { totalPages } from './fetchMovies';
 import { fetchSearchFlag } from './fetchMovies';
 import { fetchSearch } from './fetchMovies';
+import { queryMem } from './header';
 const { galleryEl, observerGalleryEl } = refs;
 
 observerGalleryEl.style.display = 'none';
@@ -39,9 +40,12 @@ const galleryObserver = new IntersectionObserver(async entries => {
     if (page < totalPages) {
       page += 1;
       if (fetchSearchFlag) {
-        // fetchSearch = `${URL}search/movie?${searchParams()}`;
-        // await fetchSearch();
-        // return;
+        await fetchSearch(queryMem, page)
+        .then(data => {
+          renderMovies(data.results)
+        })
+        .catch(error => console.log(error))
+        return;
       } else {
         const fetchTrending = `${URL}${whatToFetch}${searchParams()}`;
         await fetchMovies(fetchTrending);

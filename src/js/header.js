@@ -26,17 +26,22 @@ window.addEventListener('scroll', () => {
   //   headerWrapper.classList.toggle('header-wrapper__fixed', window.scrollY > 0);
 });
 
-refs.formEl.addEventListener('submit', ev => {
-  ev.preventDefault();
-  refs.galleryEl.innerHTML = '';
-  refs.errorEl.innerHTML = '';
-  fetchSearch(refs.searchEl.value)
-    .then(data => {
-      if (data.results.length === 0) {
-        refs.errorEl.innerHTML = 'SEARCH RESULT NOT SUCCESSFUL. ENTER THE CORRECT MOVIE NAME';
-        fetchTrending();
-      }
-      renderMovies(data.results);
-    })
-    .catch(error => console.log(error));
-});
+refs.formEl.addEventListener('submit', searchHandler);
+
+export let queryMem = '';
+function searchHandler(ev) {   
+    ev.preventDefault();
+    queryMem = refs.searchEl.value; 
+    refs.galleryEl.innerHTML = '';
+    refs.errorEl.innerHTML = '';
+    fetchSearch(refs.searchEl.value)
+      .then(data => {
+        if (data.results.length === 0) {
+          refs.errorEl.innerHTML = 'SEARCH RESULT NOT SUCCESSFUL. ENTER THE CORRECT MOVIE NAME';
+          fetchTrending();
+        }
+        renderMovies(data.results);
+      })
+      .catch(error => console.log(error));
+    return queryMem          
+}
