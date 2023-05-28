@@ -76,6 +76,16 @@ export function imageButtonClick(movie) {
 
   window.addEventListener('keydown', handleEvent);
 
+  // reload library only after remove movie from watched or queue
+  function reloadLibOnly() {
+    const currentPage = window.location.href;
+    const libraryPage = document.getElementById('lib-link');
+
+    if (currentPage === libraryPage.href) {
+      location.reload();
+    }
+  }
+
   // trailer -->
   function playTrailer() {
     fetchID(movie.id, '/videos')
@@ -126,9 +136,9 @@ const modalContent = document.querySelector('.modal-content');
       watched.splice(watched.indexOf(movie.id), 1);
       setWatched(watched);
       watchedBtn.textContent = 'add to watched';
+      reloadLibOnly();
       return;
     }
-
     watched.push(movie.id);
     setWatched(watched);
     watchedBtn.textContent = 'remove from watched';
@@ -154,6 +164,7 @@ const modalContent = document.querySelector('.modal-content');
       queue.splice(queue.indexOf(movie.id), 1);
       setQueue(queue);
       queueBtn.textContent = 'add to queue';
+      reloadLibOnly();
       return;
     }
 
@@ -161,6 +172,15 @@ const modalContent = document.querySelector('.modal-content');
     setQueue(queue);
     queueBtn.textContent = 'remove from queue';
   }
+
+  // sound effects
+  const btnClickSound = document.querySelector('#btn-click-sound');
+  watchedBtn.addEventListener('click', () => {
+    btnClickSound.play();
+  });
+  queueBtn.addEventListener('click', () => {
+    btnClickSound.play();
+  });
 }
 
 let scrollPosition = 0;

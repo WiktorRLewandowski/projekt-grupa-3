@@ -1,14 +1,18 @@
-<div class="watched-empty is-hidden">
+<div class="library-watched is-hidden">
   <img
     src="/src/images/library/empty_library.gif"
     alt="your library is empty!"
     class="travolta-gif"
     width="800"
   />
-  <h2 class="library-text">It's nothing here! Go ahead and add whatever u want!</h2>
+  <h2 class="library-text">
+    It's nothing here! Go ahead and
+    <a class="library-text__link" href="index.html">add whatever u want!</a>
+    scroll up!
+  </h2>
 </div>
 
-<div class="queue-empty library-empty-img is-hidden">
+<div class="library-queue is-hidden">
   <img
     src="/src/images/library/empty_library_queue.gif"
     alt="your queue is empty! don't make michael sad..."
@@ -16,9 +20,14 @@
     width="800"
   />
   <h2 class="library-text">
-    your queue is empty! don't make michael sad and pick something decent!
+    your queue is empty! don't make michael sad and
+    <a class="library-text__link" href="index.html">pick something decent!</a>
+    scroll up!
   </h2>
 </div>
 
 <!-- show movies in library -->
-<div id="gallery" class="gallery active-watched"></div>
+<div id="gallery" class="gallery"></div>
+
+<!-- sounds effects -->
+<audio id="toggle-btn" src="./audio/toggle-effect.wav"></audio>
