@@ -19,6 +19,16 @@
           <li>
             <a class="navigation__link navigation__link" href="./my-library.html">my library</a>
           </li>
+          <li>
+            <div class="notLoggedIn" id="not-logged-in">
+              <button data-open-modal class="login__button">Login</button>
+            </div>
+          </li>
+          <li>
+            <div class="loggedIn" id="logged-in">
+              <button id="logout__btn">Logout</button>
+            </div>
+          </li>
         </ul>
       </nav>
     </div>
@@ -43,7 +53,7 @@
       <source
         media="(min-width: 1280px)"
         srcset="
-          ./images/header-1/tekstura-2-1280px.png    1x,
+          ./images/header-1/tekstura-2-1280px.png  1x,
           ./images/header-1/tekstura-2-1280@2x.png 2x,
           ./images/header-1/tekstura-2-1280@3x.png 3x
         "
