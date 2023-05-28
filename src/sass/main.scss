@@ -14,7 +14,7 @@
 @import './modal';
 @import './partials/btn';
 @import './scrollbar';
-@import './gallery-library';
+@import './library';
 @import './loader';
 @import './firebase';
 
@@ -146,7 +146,43 @@ button {
   width: 14px;
   height: 14px;
 }
-.button__search {
+
+.button-watched {
+  min-width: 129.53px;
+  min-height: 44px;
+  background-color: transparent;
+  color: $background-color;
+  border: 1px solid $background-color;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  text-transform: uppercase;
+
+  @media screen and (min-width: 768px) {
+    min-width: 152px;
+  }
+  @media screen and (min-width: 1280px) {
+    min-width: 147px;
+    min-height: 42px;
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: $color-film-genre;
+    border: none;
+    filter: drop-shadow(0px 8px 43px rgba(255, 107, 1, 0.6));
+  }
+}
+
+.active {
+  background-color: $color-film-genre;
+  border: none;
+  filter: drop-shadow(0px 8px 43px rgba(255, 107, 1, 0.6));
+}
+
+.button-queue {
   min-width: 129.53px;
   min-height: 44px;
   background-color: transparent;

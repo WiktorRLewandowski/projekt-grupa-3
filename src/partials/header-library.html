@@ -17,7 +17,10 @@
             <a class="navigation__link" href="../src/index.html">home</a>
           </li>
           <li>
-            <a class="navigation__link navigation__link--library" href="../src/my-library.html"
+            <a
+              id="lib-link"
+              class="navigation__link navigation__link--library"
+              href="./my-library.html"
               >my library</a
             >
           </li>
@@ -25,31 +28,31 @@
       </nav>
     </div>
     <div class="btn__wrapper">
-      <button id="watched-library" class="button__search">Watched</button>
-      <button id="queue-library" class="button__search">queue</button>
+      <button class="button-watched active"></button>
+      <button class="button-queue">queue</button>
     </div>
     <picture>
       <source
         media="(min-width: 1280px)"
         srcset="
-          ./images/header-2/Rectangle-1280px.png    1x,
-          ./images/header-2/Rectangle-1280px@2x.png 2x,
-          ./images/header-2/Rectangle-1280px@3x.png 3x
+          ./images/header-2/Rectangle-1280px.png 1x,
+          ./images/header-2/Rectangle1280@2x.png 2x,
+          ./images/header-2/Rectangle1280@3x.png 3x
         "
       />
       <source
         media="(min-width: 768px)"
         srcset="
-          ./images/header-2/webP/Rectangle768.webp    1x,
-          ./images/header-2/webP/Rectangle768@2x.webp 2x,
-          ./images/header-2/webP/Rectangle768@3x.webp 3x
+          ./images/header-2/Rectangle768.png     1x,
+          ./images/header-2/Rectangle1280@2x.png 2x,
+          ./images/header-2/Rectangle1280@3x.png 3x
         "
       />
       <source
         srcset="
-          ./images/header-2/webP/Rectangle320.webp    1x,
-          ./images/header-2/webP/Rectangle320@2x.webp 2x,
-          ./images/header-2/webP/Rectangle320@3x.webp 3x
+          ./images/header-2/Rectangle320.png    1x,
+          ./images/header-2/Rectangle320@2x.png 2x,
+          ./images/header-2/Rectangle320@3x.png 3x
         "
         alt="header-background"
       />

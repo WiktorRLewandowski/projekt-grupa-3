@@ -4,11 +4,11 @@ import { renderMovies } from './renderMovies';
 
 let lastScrollTop = 0;
 let header = document.querySelector('.header');
-console.log(header);
 window.addEventListener('scroll', () => {
   let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
   if (scrollTop > lastScrollTop) {
     header.style.top = '-228px';
+    // header.style.top = '-100%';
   } else {
     header.style.top = '0';
   }
@@ -26,17 +26,22 @@ window.addEventListener('scroll', () => {
   //   headerWrapper.classList.toggle('header-wrapper__fixed', window.scrollY > 0);
 });
 
-refs.formEl.addEventListener('submit', ev => {
-  ev.preventDefault();
-  refs.galleryEl.innerHTML = '';
-  refs.errorEl.innerHTML = '';
-  fetchSearch(refs.searchEl.value)
-    .then(data => {
-      if (data.results.length === 0) {
-        refs.errorEl.innerHTML = 'SEARCH RESULT NOT SUCCESSFUL. ENTER THE CORRECT MOVIE NAME';
-        fetchTrending();
-      }
-      renderMovies(data.results);
-    })
-    .catch(error => console.log(error));
-});
+refs.formEl.addEventListener('submit', searchHandler);
+
+export let queryMem = '';
+function searchHandler(ev) {   
+    ev.preventDefault();
+    queryMem = refs.searchEl.value; 
+    refs.galleryEl.innerHTML = '';
+    refs.errorEl.innerHTML = '';
+    fetchSearch(refs.searchEl.value)
+      .then(data => {
+        if (data.results.length === 0) {
+          refs.errorEl.innerHTML = 'SEARCH RESULT NOT SUCCESSFUL. ENTER THE CORRECT MOVIE NAME';
+          fetchTrending();
+        }
+        renderMovies(data.results);
+      })
+      .catch(error => console.log(error));
+    return queryMem          
+}

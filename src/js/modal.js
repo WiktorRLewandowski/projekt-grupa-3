@@ -9,6 +9,11 @@ const IMG_URL = 'https://image.tmdb.org/t/p/w500'; // gupia kopia
 //wyciągamy tylko definicję funkcji do innego pliku i robimy export, żeby użyć jej w innym
 export function imageButtonClick(movie) {
   const modal = document.querySelector('#modal');
+
+
+     
+
+
   modal.innerHTML = `
       <div class="modal modal-content">
       <button type="button" class="button-modal-close">
@@ -25,7 +30,9 @@ export function imageButtonClick(movie) {
       />
     </svg>
     </button>
+    <div class="modal-content__movie-poster-container">
       <img class="modal-content__movie-poster" src="${IMG_URL}${movie.poster_path}"/>
+      </div>
         <h3 class="modal-content__movie-title">${movie.title}</h3>
         <ul class="modal-content__list">
         <div class="modal-content__list-box-1">
@@ -57,11 +64,57 @@ export function imageButtonClick(movie) {
       <button type="button" class="button-modal__queue">add to queue</button>
       </div>
       </div>`;
+
+
+
   modal.classList.remove('is-hidden-modal');
+  modal.addEventListener('click', handleEvent);
 
   const buttonModal = document.querySelector('.button-modal-close');
-  buttonModal.addEventListener('click', handleEvent);
+  buttonModal.addEventListener('click', handleModalClose);
   disableScroll();
+
+  window.addEventListener('keydown', handleEvent);
+
+  // reload library only after remove movie from watched or queue
+  function reloadLibOnly() {
+    const currentPage = window.location.href;
+    const libraryPage = document.getElementById('lib-link');
+
+    if (currentPage === libraryPage.href) {
+      location.reload();
+    }
+  }
+
+  // trailer -->
+  function playTrailer() {
+    fetchID(movie.id, '/videos')
+    .then(videoData => {
+      console.log(videoData);
+  
+      const videosArray = videoData.results;
+      console.log(videosArray);
+      const youtubeVideo = videosArray.find(video => video.site === 'YouTube' && video.name.includes('Trailer'));
+      if (youtubeVideo) {
+        modalContent.classList.add('is-hidden-modal');
+        const videoUrl = `https://www.youtube.com/embed/${youtubeVideo.key}`;
+        console.log(videoUrl);
+        modal.innerHTML += `
+          <div class="video-container">
+            <iframe class="video-iframe" src="${videoUrl}" frameborder="0" allowfullscreen></iframe>
+          </div>
+        `;
+      }
+    })
+    .catch(error => {
+      console.error('Error fetching video data:', error);
+    });
+  };
+
+const buttonPoster = document.querySelector('.modal-content__movie-poster-container')
+buttonPoster.addEventListener('click', playTrailer);
+
+const modalContent = document.querySelector('.modal-content');
 
   // add to watched btn -->
   addWatchedClick();
@@ -83,9 +136,9 @@ export function imageButtonClick(movie) {
       watched.splice(watched.indexOf(movie.id), 1);
       setWatched(watched);
       watchedBtn.textContent = 'add to watched';
+      reloadLibOnly();
       return;
     }
-
     watched.push(movie.id);
     setWatched(watched);
     watchedBtn.textContent = 'remove from watched';
@@ -111,6 +164,7 @@ export function imageButtonClick(movie) {
       queue.splice(queue.indexOf(movie.id), 1);
       setQueue(queue);
       queueBtn.textContent = 'add to queue';
+      reloadLibOnly();
       return;
     }
 
@@ -118,9 +172,16 @@ export function imageButtonClick(movie) {
     setQueue(queue);
     queueBtn.textContent = 'remove from queue';
   }
-}
 
-window.addEventListener('keydown', handleEvent);
+  // sound effects
+  const btnClickSound = document.querySelector('#btn-click-sound');
+  watchedBtn.addEventListener('click', () => {
+    btnClickSound.play();
+  });
+  queueBtn.addEventListener('click', () => {
+    btnClickSound.play();
+  });
+}
 
 let scrollPosition = 0;
 const body = document.body;
@@ -135,17 +196,29 @@ function enableScroll() {
   window.scrollTo(0, scrollPosition);
 }
 
+function handleModalClose() {
+  modal.innerHTML = '';
+  modal.classList.add('is-hidden-modal');
+  enableScroll();
+  window.removeEventListener('keydown', handleEvent);
+}
+
 function handleEvent(event) {
-  if (event.type === 'click' || (event.type === 'keydown' && event.key === 'Escape')) {
+  if (
+    event.type === 'click' &&
+    event.target.closest('.modal-content') === null &&
+    event.target.closest('.button-modal-close') === null
+  ) {
     modal.innerHTML = '';
     modal.classList.add('is-hidden-modal');
     enableScroll();
+    window.removeEventListener('keydown', handleEvent);
+  } else if (event.type === 'keydown' && event.key === 'Escape') {
+    modal.innerHTML = '';
+    modal.classList.add('is-hidden-modal');
+    enableScroll();
+    window.removeEventListener('keydown', handleEvent);
   }
-}
+};
 
-refs.galleryEl.addEventListener('click', ev => {
-  if (ev.target.matches('figure')) {
-    console.log(ev.target.dataset.id);
-  }
-  console.log(ev.target);
-});
+
