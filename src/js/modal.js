@@ -86,11 +86,12 @@ export function imageButtonClick(movie) {
       console.log(videosArray);
       const youtubeVideo = videosArray.find(video => video.site === 'YouTube' && video.name.includes('Trailer'));
       if (youtubeVideo) {
+        modalContent.classList.add('is-hidden-modal');
         const videoUrl = `https://www.youtube.com/embed/${youtubeVideo.key}`;
         console.log(videoUrl);
         modal.innerHTML += `
           <div class="video-container">
-            <iframe width="560" height="315" src="${videoUrl}" frameborder="0" allowfullscreen></iframe>
+            <iframe class="video-iframe" src="${videoUrl}" frameborder="0" allowfullscreen></iframe>
           </div>
         `;
       }
@@ -102,6 +103,8 @@ export function imageButtonClick(movie) {
 
 const buttonPoster = document.querySelector('.modal-content__movie-poster-container')
 buttonPoster.addEventListener('click', playTrailer);
+
+const modalContent = document.querySelector('.modal-content');
 
   // add to watched btn -->
   addWatchedClick();
