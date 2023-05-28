@@ -9,6 +9,11 @@ const IMG_URL = 'https://image.tmdb.org/t/p/w500'; // gupia kopia
 //wyciągamy tylko definicję funkcji do innego pliku i robimy export, żeby użyć jej w innym
 export function imageButtonClick(movie) {
   const modal = document.querySelector('#modal');
+
+
+     
+
+
   modal.innerHTML = `
       <div class="modal modal-content">
       <button type="button" class="button-modal-close">
@@ -25,7 +30,9 @@ export function imageButtonClick(movie) {
       />
     </svg>
     </button>
+    <div class="modal-content__movie-poster-container">
       <img class="modal-content__movie-poster" src="${IMG_URL}${movie.poster_path}"/>
+      </div>
         <h3 class="modal-content__movie-title">${movie.title}</h3>
         <ul class="modal-content__list">
         <div class="modal-content__list-box-1">
@@ -57,6 +64,9 @@ export function imageButtonClick(movie) {
       <button type="button" class="button-modal__queue">add to queue</button>
       </div>
       </div>`;
+
+
+
   modal.classList.remove('is-hidden-modal');
   modal.addEventListener('click', handleEvent);
 
@@ -75,6 +85,36 @@ export function imageButtonClick(movie) {
       location.reload();
     }
   }
+
+  // trailer -->
+  function playTrailer() {
+    fetchID(movie.id, '/videos')
+    .then(videoData => {
+      console.log(videoData);
+  
+      const videosArray = videoData.results;
+      console.log(videosArray);
+      const youtubeVideo = videosArray.find(video => video.site === 'YouTube' && video.name.includes('Trailer'));
+      if (youtubeVideo) {
+        modalContent.classList.add('is-hidden-modal');
+        const videoUrl = `https://www.youtube.com/embed/${youtubeVideo.key}`;
+        console.log(videoUrl);
+        modal.innerHTML += `
+          <div class="video-container">
+            <iframe class="video-iframe" src="${videoUrl}" frameborder="0" allowfullscreen></iframe>
+          </div>
+        `;
+      }
+    })
+    .catch(error => {
+      console.error('Error fetching video data:', error);
+    });
+  };
+
+const buttonPoster = document.querySelector('.modal-content__movie-poster-container')
+buttonPoster.addEventListener('click', playTrailer);
+
+const modalContent = document.querySelector('.modal-content');
 
   // add to watched btn -->
   addWatchedClick();
@@ -179,4 +219,6 @@ function handleEvent(event) {
     enableScroll();
     window.removeEventListener('keydown', handleEvent);
   }
-}
+};
+
+
