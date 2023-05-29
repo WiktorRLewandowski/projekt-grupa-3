@@ -3,7 +3,7 @@ let header = document.querySelector('.header');
 window.addEventListener('scroll', () => {
   let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
   if (scrollTop > lastScrollTop) {
-    header.style.top = '-228px';
+    header.style.top = '-260px';
     // header.style.top = '-100%';
   } else {
     header.style.top = '0';
