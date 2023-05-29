@@ -26,3 +26,12 @@ export const idToGenre = genresArray => {
   genresList = genresList.slice(0, -2);
   return genresList;
 };
+
+export function makeGenresList(movie) {
+  let genresList = '';
+  if (movie.genre_ids.length === 0) {
+    return (genresList = 'No genres assigned');
+  } else {
+    return (genresList = idToGenre(movie.genre_ids));
+  }
+}

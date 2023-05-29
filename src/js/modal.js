@@ -1,18 +1,23 @@
 // import { IMG_URL } from './renderMovies' // okazuje się, że nie można wyeksportować i używać zmiennej w tym samym pliku
 import { fetchID } from './fetchMovies';
-import { idToGenre } from './genres';
+// import { idToGenre } from './genres';
 import { refs } from './refs';
 import { watched, queue, setWatched, setQueue } from './localStorage';
+import { makeMoviePoster } from './makeMoviePoster';
+import { makeGenresList } from './genres';
 
-const IMG_URL = 'https://image.tmdb.org/t/p/w500'; // gupia kopia
+// const IMG_URL = 'https://image.tmdb.org/t/p/w500'; // gupia kopia
 
 //wyciągamy tylko definicję funkcji do innego pliku i robimy export, żeby użyć jej w innym
 export function imageButtonClick(movie) {
   const modal = document.querySelector('#modal');
 
-
-     
-
+  // let moviePoster = '';
+  // if (movie.poster_path === null) {
+  //   moviePoster = new URL('../images/poster-none.png', import.meta.url);
+  // } else {
+  //   moviePoster = `${IMG_URL}${movie.poster_path}`;
+  // }
 
   modal.innerHTML = `
       <div class="modal modal-content">
@@ -31,7 +36,7 @@ export function imageButtonClick(movie) {
     </svg>
     </button>
     <div class="modal-content__movie-poster-container">
-      <img class="modal-content__movie-poster" src="${IMG_URL}${movie.poster_path}"/>
+      <img class="modal-content__movie-poster" src="${makeMoviePoster(movie)}"/>
       </div>
         <h3 class="modal-content__movie-title">${movie.title}</h3>
         <ul class="modal-content__list">
@@ -54,7 +59,7 @@ export function imageButtonClick(movie) {
         </div>
         <div class="modal-content__list-box-4">
         <li>Genre</li>
-        <li class="modal-content__list-result">${idToGenre(movie.genre_ids)}</li>
+        <li class="modal-content__list-result">${makeGenresList(movie)}</li>
         </div>
         </ul>
         <h4 class="modal-content__movie-about">About</h4>
@@ -64,8 +69,6 @@ export function imageButtonClick(movie) {
       <button type="button" class="button-modal__queue">add to queue</button>
       </div>
       </div>`;
-
-
 
   modal.classList.remove('is-hidden-modal');
   modal.addEventListener('click', handleEvent);
@@ -89,32 +92,34 @@ export function imageButtonClick(movie) {
   // trailer -->
   function playTrailer() {
     fetchID(movie.id, '/videos')
-    .then(videoData => {
-      console.log(videoData);
-  
-      const videosArray = videoData.results;
-      console.log(videosArray);
-      const youtubeVideo = videosArray.find(video => video.site === 'YouTube' && video.name.includes('Trailer'));
-      if (youtubeVideo) {
-        modalContent.classList.add('is-hidden-modal');
-        const videoUrl = `https://www.youtube.com/embed/${youtubeVideo.key}`;
-        console.log(videoUrl);
-        modal.innerHTML += `
+      .then(videoData => {
+        console.log(videoData);
+
+        const videosArray = videoData.results;
+        console.log(videosArray);
+        const youtubeVideo = videosArray.find(
+          video => video.site === 'YouTube' && video.name.includes('Trailer'),
+        );
+        if (youtubeVideo) {
+          modalContent.classList.add('is-hidden-modal');
+          const videoUrl = `https://www.youtube.com/embed/${youtubeVideo.key}`;
+          console.log(videoUrl);
+          modal.innerHTML += `
           <div class="video-container">
             <iframe class="video-iframe" src="${videoUrl}" frameborder="0" allowfullscreen></iframe>
           </div>
         `;
-      }
-    })
-    .catch(error => {
-      console.error('Error fetching video data:', error);
-    });
-  };
+        }
+      })
+      .catch(error => {
+        console.error('Error fetching video data:', error);
+      });
+  }
 
-const buttonPoster = document.querySelector('.modal-content__movie-poster-container')
-buttonPoster.addEventListener('click', playTrailer);
+  const buttonPoster = document.querySelector('.modal-content__movie-poster-container');
+  buttonPoster.addEventListener('click', playTrailer);
 
-const modalContent = document.querySelector('.modal-content');
+  const modalContent = document.querySelector('.modal-content');
 
   // add to watched btn -->
   addWatchedClick();
@@ -219,6 +224,4 @@ function handleEvent(event) {
     enableScroll();
     window.removeEventListener('keydown', handleEvent);
   }
-};
-
-
+}
