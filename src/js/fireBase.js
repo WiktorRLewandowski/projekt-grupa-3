@@ -2,7 +2,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged,signOut } from "firebase/auth";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -71,12 +71,14 @@ closeButton.addEventListener("click", () => {
 // }
 
 loggin__btn.addEventListener('click', (e) => {
+    e.preventDefault()
     var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;
 
 signInWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     // Signed in 
+      
       const user = userCredential.user;
       console.log('yaaay')
       alert('Loged In!')
