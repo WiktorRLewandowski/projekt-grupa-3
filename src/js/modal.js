@@ -94,17 +94,17 @@ export function imageButtonClick(movie) {
   function playTrailer() {
     fetchID(movie.id, '/videos')
       .then(videoData => {
-        console.log(videoData);
+        // console.log(videoData);
 
         const videosArray = videoData.results;
-        console.log(videosArray);
+        // console.log(videosArray);
         const youtubeVideo = videosArray.find(
           video => video.site === 'YouTube' && video.name.includes('Trailer'),
         );
         if (youtubeVideo) {
           modalContent.classList.add('is-hidden-modal');
           const videoUrl = `https://www.youtube.com/embed/${youtubeVideo.key}`;
-          console.log(videoUrl);
+          // console.log(videoUrl);
           modal.innerHTML += `
           <div class="video-container">
             <iframe class="video-iframe" src="${videoUrl}" frameborder="0" allowfullscreen></iframe>

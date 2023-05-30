@@ -15,8 +15,8 @@ export const fetchMovies = async url => {
   try {
     const response = await axios.get(url);
     totalPages = response.data.total_pages;
-    console.log(totalPages);
-    console.log(response.data);
+    // console.log(totalPages);
+    // console.log(response.data);
     renderMovies(response.data.results);
   } catch (error) {
     console.log(error);
@@ -35,7 +35,7 @@ export const fetchSearch = async (query, page) => {
     },
   });
   totalPages = response.data.total_pages;
-  console.log(totalPages);
+  // console.log(totalPages);
   return response.data;
 };
 
@@ -54,8 +54,8 @@ export const fetchID = async (id, video) => {
     }
   });
   const data = await response.data;
-  console.log(data);
-  console.log(video)
+  // console.log(data);
+  // console.log(video)
   return data;
 
 };

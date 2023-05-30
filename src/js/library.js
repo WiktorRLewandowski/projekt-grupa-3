@@ -3,24 +3,6 @@ import { refs } from './refs';
 import { watched, queue } from './localStorage';
 import { fetchID } from './fetchMovies';
 import { renderMovies } from './renderMovies';
-const { observerGalleryEl } = refs;
-
-observerGalleryEl.style.display = 'none';
-
-const options = {
-  rootMargin: '550px',
-};
-
-const galleryObserver = new IntersectionObserver(async entries => {
-  if (entries[0].isIntersecting) {
-    console.log('obserwuje');
-    if (queue.length < (queue.length/20)) {
-
-    }
-  }
-}, options);
-
-galleryObserver.observe(observerGalleryEl);
 
 // VARS:
 // BTNS:
