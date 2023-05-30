@@ -1,12 +1,22 @@
 <dialog data-modal id="" class="login__modal">
   <div class="modal__content">
-    <button data-close-modal class="login__close">X</button>
+    <p class="modal-text">Log in</p>
+    <button data-close-modal class="login__close"><i class="fa-solid fa-xmark"></i></button>
   </div>
   <div id="not-logged-in" class="modal__form">
   <form  class="modal__login">
-    <input type="text" id="email" placeholder="email" />
-    <input type="password" id="password" placeholder="password" />
-    <button id="loggin__btn" type="submit">Log in</button>
+    <label class="input-label" for="email">User e-mail</label>
+    <div class="input-container">
+    <input class="modal__input-email" type="text" name="email" id="email" />
+    <i class="fa-solid fa-envelope modal__input-icon"></i>
+    </div>
+    <label class="input-label" for="password">Password</label>
+    <div class="input-container">
+    <input class="modal__input-password" type="password" name="password" id="password" />
+    <i class="fa-solid fa-lock modal__input-icon"></i>
+    </div>
+    <button class="modal-button" id="loggin__btn" type="submit">Log in</button>
   </form>
+  <p class="firebase">Powered by &nbsp;<img src="./images/logo-firebase-min.png" width="50"/></p>
   </div>
 </dialog>
