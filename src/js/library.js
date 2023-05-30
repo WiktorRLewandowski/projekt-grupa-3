@@ -1,7 +1,24 @@
 // NEEDED IMPORTS:
+import { refs } from './refs';
 import { watched, queue } from './localStorage';
 import { fetchID } from './fetchMovies';
 import { renderMovies } from './renderMovies';
+const { observerGalleryEl } = refs;
+
+observerGalleryEl.style.display = 'none';
+
+const options = {
+  rootMargin: '550px',
+};
+
+const galleryObserver = new IntersectionObserver(async entries => {
+  if (entries[0].isIntersecting) {
+    console.log('obserwuje');
+    // KOD
+  }
+}, options);
+
+galleryObserver.observe(observerGalleryEl);
 
 // VARS:
 // BTNS:
@@ -105,4 +122,12 @@ function showQueueMovies() {
   });
 }
 
+
+setTimeout(() => {
+  observerGalleryEl.style.display = 'initial';
+}, 1000);
+
+fetchMovies(trendingURL);
+
 export { watchedBtnLibClick, queueBtnLibClick };
+
