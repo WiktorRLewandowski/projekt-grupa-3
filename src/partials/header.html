@@ -23,12 +23,14 @@
           </li>
           <li>
             <div class="notLoggedIn" id="not-logged-in">
-              <button data-open-modal class="login__button">Login</button>
+              <button data-open-modal class="login__button" aria-label="User sign-in">
+                <i class="fa-solid fa-user login__button-icon"></i>
+                </button>
             </div>
           </li>
           <li>
             <div class="loggedIn" id="logged-in">
-              <button id="logout__btn">Logout</button>
+              <button id="logout__btn" class="login__button" aria-label="User logout"><i class="fa-solid fa-right-from-bracket login__button-icon"></i></button>
             </div>
           </li>
         </ul>
