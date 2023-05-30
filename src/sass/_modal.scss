@@ -6,7 +6,7 @@
     visibility: visible;
     overflow: auto;
     opacity: 1;
-    top: 60px;
+    // top: 60px;
     padding: 48px 20px;
     transition: opacity 250ms ease;
     border-radius: 4px;
@@ -58,12 +58,21 @@
       padding: 30px;
       border-radius: 2px;
       z-index: 2;
+      opacity: .8;
+      transition: opacity 0.5s ease-in-out;
       overflow: visible;
       cursor: pointer;
       background-image: url('../images/svg/play2.svg');
       background-repeat: no-repeat;
       background-size: cover;
     }
+    &__movie-poster-container {
+      &.remove::after {
+        display:none;
+      }
+    }
+    
+    
 &__movie-title {
     line-height: 1.17;
     font-weight: 500;
@@ -312,7 +321,7 @@ line-height: 1.66;
           visibility: hidden;
           overflow: visible;
           cursor: pointer;
-          transition: opacity 0.5s ease-in-out;
+          
           opacity: 0;
           background-image: url('../images/svg/play2.svg');
           background-repeat: no-repeat;
@@ -320,7 +329,7 @@ line-height: 1.66;
         }
         &__movie-poster-container:hover::after {
           visibility: visible;
-          opacity: 1;
+          opacity: .8;
         }
         &__movie-title {
           line-height: 1.16;

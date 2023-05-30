@@ -38,7 +38,7 @@ function watchedBtnLibClick() {
   if (watched.length === 0) {
     libQueue.classList.add('is-hidden');
     libWatched.classList.remove('is-hidden');
-    watchedGIF.scrollIntoView();
+    // watchedGIF.scrollIntoView();
     // divGallery.classList.add('.is-hidden');
   }
   if ((divGallery.innerHTML = queue)) {
@@ -69,7 +69,7 @@ function queueBtnLibClick() {
   if (queue.length === 0) {
     libWatched.classList.add('is-hidden');
     libQueue.classList.remove('is-hidden');
-    queueGIF.scrollIntoView();
+    // queueGIF.scrollIntoView();
     // divGallery.classList.add('.is-hidden');
   }
   if ((divGallery.innerHTML = watched)) {

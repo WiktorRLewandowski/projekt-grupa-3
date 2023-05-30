@@ -109,6 +109,8 @@ export function imageButtonClick(movie) {
             <iframe class="video-iframe" src="${videoUrl}" frameborder="0" allowfullscreen></iframe>
           </div>
         `;
+        } else {
+          document.querySelector('.modal-content__movie-poster-container').classList.add('remove')
         }
       })
       .catch(error => {
