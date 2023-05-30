@@ -111,7 +111,7 @@ export function imageButtonClick(movie) {
           </div>
         `;
         } else {
-          document.querySelector('.modal-content__movie-poster-container').classList.add('remove');
+          buttonPoster.classList.add("modal-content__movie-poster-container__no-trailer");
         }
       })
       .catch(error => {
@@ -121,6 +121,7 @@ export function imageButtonClick(movie) {
 
   const buttonPoster = document.querySelector('.modal-content__movie-poster-container');
   buttonPoster.addEventListener('click', playTrailer);
+  
 
   const modalContent = document.querySelector('.modal-content');
 
