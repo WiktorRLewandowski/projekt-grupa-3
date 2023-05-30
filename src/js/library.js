@@ -14,7 +14,9 @@ const options = {
 const galleryObserver = new IntersectionObserver(async entries => {
   if (entries[0].isIntersecting) {
     console.log('obserwuje');
-    // KOD
+    if (queue.length < (queue.length/20)) {
+
+    }
   }
 }, options);
 
@@ -126,8 +128,6 @@ function showQueueMovies() {
 setTimeout(() => {
   observerGalleryEl.style.display = 'initial';
 }, 1000);
-
-fetchMovies(trendingURL);
 
 export { watchedBtnLibClick, queueBtnLibClick };
 
