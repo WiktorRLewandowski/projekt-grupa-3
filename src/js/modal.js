@@ -5,6 +5,7 @@ import { refs } from './refs';
 import { watched, queue, setWatched, setQueue } from './localStorage';
 import { makeMoviePoster } from './makeMoviePoster';
 import { makeGenresList } from './genres';
+import { reloadWatchedOnly, reloadQueueOnly } from './reloadLibrary';
 
 // const IMG_URL = 'https://image.tmdb.org/t/p/w500'; // gupia kopia
 
@@ -80,14 +81,14 @@ export function imageButtonClick(movie) {
   window.addEventListener('keydown', handleEvent);
 
   // reload library only after remove movie from watched or queue
-  function reloadLibOnly() {
-    const currentPage = window.location.href;
-    const libraryPage = document.getElementById('lib-link');
+  // function reloadLibOnly() {
+  //   const currentPage = window.location.href;
+  //   const libraryPage = document.getElementById('lib-link');
 
-    if (currentPage === libraryPage.href) {
-      location.reload();
-    }
-  }
+  //   if (currentPage == libraryPage.href) {
+  //     location.reload();
+  //   }
+  // }
 
   // trailer -->
   function playTrailer() {
@@ -110,7 +111,7 @@ export function imageButtonClick(movie) {
           </div>
         `;
         } else {
-          document.querySelector('.modal-content__movie-poster-container').classList.add('remove')
+          document.querySelector('.modal-content__movie-poster-container').classList.add('remove');
         }
       })
       .catch(error => {
@@ -123,6 +124,7 @@ export function imageButtonClick(movie) {
 
   const modalContent = document.querySelector('.modal-content');
 
+  // BEGIN OF LOCAL STORAGE
   // add to watched btn -->
   addWatchedClick();
 
@@ -143,7 +145,9 @@ export function imageButtonClick(movie) {
       watched.splice(watched.indexOf(movie.id), 1);
       setWatched(watched);
       watchedBtn.textContent = 'add to watched';
-      reloadLibOnly();
+      // reloadLibOnly();
+      reloadWatchedOnly();
+      handleModalClose();
       return;
     }
     watched.push(movie.id);
@@ -171,7 +175,10 @@ export function imageButtonClick(movie) {
       queue.splice(queue.indexOf(movie.id), 1);
       setQueue(queue);
       queueBtn.textContent = 'add to queue';
-      reloadLibOnly();
+      // alert('here');
+      // reloadLibOnly();
+      reloadQueueOnly();
+      handleModalClose();
       return;
     }
 
@@ -179,6 +186,7 @@ export function imageButtonClick(movie) {
     setQueue(queue);
     queueBtn.textContent = 'remove from queue';
   }
+  // END OF LOCAL STORAGE
 
   // sound effects
   const btnClickSound = document.querySelector('#btn-click-sound');

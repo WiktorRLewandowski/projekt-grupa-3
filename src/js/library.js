@@ -39,9 +39,20 @@ queueBtnLib.addEventListener('click', queueBtnLibClick);
 
 // on load library watched is showed
 window.addEventListener('load', () => {
-  // console.log('load run');
-  watchedBtnLibClick();
-  queueBtnLib.innerHTML = `QUEUE: ${queue.length}`;
+  const currentPage = window.location.href;
+  const libraryPage = document.getElementById('lib-link');
+  const homePage = document.getElementById('home-link');
+
+  if (currentPage == homePage) {
+    console.log('home page works');
+  }
+
+  if (currentPage == libraryPage) {
+    console.log('library works?');
+    watchedBtnLibClick();
+    queueBtnLib.innerHTML = `QUEUE: ${queue.length}`;
+  }
+  console.log('load run');
 });
 
 // on open library 'watched' is active
@@ -111,8 +122,12 @@ function showQueueMovies() {
   });
 }
 
+
 setTimeout(() => {
   observerGalleryEl.style.display = 'initial';
 }, 1000);
 
 fetchMovies(trendingURL);
+
+export { watchedBtnLibClick, queueBtnLibClick };
+
