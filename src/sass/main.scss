@@ -17,6 +17,7 @@
 @import './library';
 @import './loader';
 @import './firebase';
+@import './modal-team';
 
 * {
   padding: 0;
@@ -121,8 +122,8 @@ button {
   align-items: center;
 }
 // .footer {
-  // max-width: 100vw;
-  // min-height: 180px;
+// max-width: 100vw;
+// min-height: 180px;
 // }
 .list {
   &-wrapper {
