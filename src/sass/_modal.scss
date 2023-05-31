@@ -53,8 +53,8 @@
       content: '';
       position: absolute;
       width: 15%;
-      top: 43%;
-      left: 49%;
+      top: 44%;
+      left: 50%;
       transform: translate(-50%, -50%);
       padding: 30px;
       border-radius: 2px;
@@ -68,9 +68,14 @@
       background-size: cover;
     }
     &__movie-poster-container__no-trailer::after {
-      background-image: url('../images/svg/noTrailer.svg');
-      width: 80%;
-      padding: 100px;
+      background-image: url('../images/svg/youtube.svg');
+      background-color: white;
+      width: 228px;
+      height: 344px;
+      @media screen and (min-width:768px) {
+        width: 228px;
+      height: 344px;
+      }
     }
     
     
@@ -266,12 +271,13 @@ line-height: 1.66;
           &__movie-poster-container::after {
             width: 15%;
             top: 50%;
-            left: 22%;
+            left: 23%;
             padding: 60px;
           }
           &__movie-poster-container__no-trailer::after {
-            width: 40%;
-            padding: 130px;
+            min-width:252px ;
+            min-height: 375px;
+            // padding: 130px;
           }
           &__movie-title {
             padding-top: 0;
@@ -316,11 +322,9 @@ line-height: 1.66;
         &__movie-poster-container::after {
           content: '';
           position: absolute;
-          width: 15%;
           top: 50%;
-          left: 20%;
+          left: 22%;
           transform: translate(-50%, -50%);
-          padding: 75px;
           border-radius: 2px;
           z-index: 2;
           visibility: hidden;
@@ -332,14 +336,14 @@ line-height: 1.66;
           background-repeat: no-repeat;
           background-size: cover;
         }
-        &__movie-poster-container:hover::after {
+        &__movie-poster-container::after {
           visibility: visible;
           opacity: .8;
         }
         &__movie-poster-container__no-trailer::after {
-          background-image: url('../images/svg/noTrailer.svg');
-          width: 40%;
-          padding: 140px;
+          background-image: url('../images/svg/youtube.svg');
+          min-width: 328px;
+          min-height: 481px;
         }
         &__movie-title {
           line-height: 1.16;

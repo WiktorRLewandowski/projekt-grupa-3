@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="130.045 -13.982 228 342" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <linearGradient gradientUnits="userSpaceOnUse" x1="244.911" y1="64.918" x2="244.911" y2="205.53" id="gradient-0" gradientTransform="matrix(0.725756, 0, 0, 0.71892, 65.55134, 39.719192)">
+      <stop offset="0" style="stop-color: rgba(181, 35, 35, 1)"/>
+      <stop offset="1" style="stop-color: rgba(96, 19, 19, 1)"/>
+    </linearGradient>
+  </defs>
+  <rect x="163.464" y="86.39" width="159.667" height="101.089" rx="30" ry="30" style="stroke: rgb(0, 0, 0); fill-rule: evenodd; paint-order: fill markers; fill: url(#gradient-0);"/>
+  <circle style="stroke: rgb(0, 0, 0); fill: rgb(255, 255, 255);" transform="matrix(0.488926, 0, 0, 0.495584, -190.422897, -34.736046)" cx="834.5" cy="311" r="21.5"/>
+  <circle style="stroke: rgb(0, 0, 0); fill: rgb(255, 255, 255); paint-order: fill;" transform="matrix(0.488926, 0, 0, 0.495584, -139.61998, -34.736046)" cx="834.5" cy="311" r="21.5"/>
+  <rect x="194.325" y="159.96" width="65.287" height="6.474" style="stroke: rgb(0, 0, 0); fill: rgb(255, 255, 255);" transform="matrix(0.974833, -0.222938, 0.226982, 0.973908, -15.039433, 47.097816)" bx:origin="0.494772 0.657225"/>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 26.2px;" x="102.64" y="261.313" transform="matrix(0.725756, 0, 0, 0.71892, 65.551338, 39.719193)">This video is unavailable</text>
+</svg>
