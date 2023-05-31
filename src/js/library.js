@@ -28,15 +28,15 @@ window.addEventListener('load', () => {
   const homePage = document.getElementById('home-link');
 
   if (currentPage == homePage) {
-    console.log('home page works');
+    // console.log('home page works');
   }
 
   if (currentPage == libraryPage) {
-    console.log('library works?');
+    // console.log('library works?');
     watchedBtnLibClick();
     queueBtnLib.innerHTML = `QUEUE: ${queue.length}`;
   }
-  console.log('load run');
+  // console.log('load run');
 });
 
 // on open library 'watched' is active
@@ -105,11 +105,6 @@ function showQueueMovies() {
       .catch(error => console.log(error));
   });
 }
-
-
-setTimeout(() => {
-  observerGalleryEl.style.display = 'initial';
-}, 1000);
 
 export { watchedBtnLibClick, queueBtnLibClick };
 
