@@ -83,7 +83,7 @@ export const fetchTrending = async () => {
   })
   const data = await response.data;
   renderMovies(data.results)
-} // tak było mi szybciej załadować trending na nieudanym wyszukiwaniu
+} // tak było mi szybciej załadować endingtr na nieudanym wyszukiwaniu
 
 // fetchID(603692, true).then(data => console.log(data)).catch(error=>console.log(error))
 

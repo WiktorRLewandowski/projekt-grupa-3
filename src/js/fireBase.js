@@ -2,7 +2,10 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged,signOut } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
+import { getFirestore, collection, doc, addDoc, setDoc, getDocs, snaphot } from "firebase/firestore";
+// import { getWatched } from "./localStorage";
+// import { watched, queue } from './localStorage';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -22,7 +25,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth(app);
-
+const db = getFirestore(app);
 
 
 const openButton = document.querySelector("[data-open-modal]")
@@ -39,48 +42,20 @@ closeButton.addEventListener("click", () => {
     modalLogin.close()
 })
 
-// firebase.auth().onAuthStateChanged(function (user) {
-//    const notLoggedIn = document.getElementById('not-logged-in')
-//     const loggedIn = document.getElementById('logged-in')
-//     if (user) {
-// loggedIn.classList.remove('notLoggedIn')
-// notLoggedIn.classList.add('loggedIn')
-//     } else {
 
-//         notLoggedIn.classList.remove('loggedIn')
-//         loggedIn.classList.add('notLoggedIn')
-//     }
-// });
-
-
-
-// function login(event) {
-//     event.preventDefault()
-// var email = document.getElementById('email').value
-// var password = document.getElementById('password').value
-//     firebase.auth().signInWithEmailAndPassword(email, password).catch(function (error) {
-//         console.log('Error signinng in,', error.message)
-//         alert(error.message)
-//     })
-// }
-
-// function logout() {
-
-
-
-// }
 
 loggin__btn.addEventListener('click', (e) => {
     e.preventDefault()
     var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;
+    const form = document.getElementById('login_form');
 
 signInWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     // Signed in 
       
       const user = userCredential.user;
-      console.log('yaaay')
+      form.reset()
       alert('Loged In!')
     
   })
@@ -129,4 +104,29 @@ signOut(auth).then(() => {
 });
 
 })
+
+
+sign__btn.addEventListener('click', (e) => {
+    e.preventDefault()
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
+    const form = document.getElementById('login_form');
+    createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            alert('Signed In!')
+            form.reset()
+  
+    
+        console.log( userCredential.user)
+        })
+
+    .catch((error) => {
+    const errorCode = error.code;
+      const errorMessage = error.message;
+      
+      alert(errorMessage)
+  });
+})
+
+
 
