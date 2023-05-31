@@ -322,8 +322,9 @@ line-height: 1.66;
         &__movie-poster-container::after {
           content: '';
           position: absolute;
+          width: 15%;
           top: 50%;
-          left: 22%;
+          left: 21%;
           transform: translate(-50%, -50%);
           border-radius: 2px;
           z-index: 2;
@@ -342,7 +343,7 @@ line-height: 1.66;
         }
         &__movie-poster-container__no-trailer::after {
           background-image: url('../images/svg/youtube.svg');
-          min-width: 328px;
+          min-width: 327px;
           min-height: 481px;
         }
         &__movie-title {
