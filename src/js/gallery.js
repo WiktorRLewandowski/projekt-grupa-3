@@ -8,6 +8,9 @@ import { fetchSearch } from './fetchMovies';
 import { queryMem } from './header';
 const { galleryEl, observerGalleryEl } = refs;
 
+// export let libraryFlag = false;
+libraryFLG = false;
+
 observerGalleryEl.style.display = 'none';
 
 const URL = 'https://api.themoviedb.org/3/';
@@ -35,16 +38,16 @@ const options = {
 };
 
 const galleryObserver = new IntersectionObserver(async entries => {
-  if (entries[0].isIntersecting) {
+  if (entries[0].isIntersecting && libraryFLG === false) {
     // console.log('obserwuje');
     if (page < totalPages) {
       page += 1;
       if (fetchSearchFlag) {
         await fetchSearch(queryMem, page)
-        .then(data => {
-          renderMovies(data.results)
-        })
-        .catch(error => console.log(error))
+          .then(data => {
+            renderMovies(data.results);
+          })
+          .catch(error => console.log(error));
         return;
       } else {
         const fetchTrending = `${URL}${whatToFetch}${searchParams()}`;
