@@ -87,11 +87,6 @@
       }
     }
 
-    // &__fixed {
-    //   display: flex;
-    //   padding: 0.5rem 1.25rem;
-    //   border-radius: 0 0 10px 10px;
-    // }
   }
   &__container {
     display: flex;
@@ -126,34 +121,16 @@
       }
     }
   }
-  &__library {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 0 1.25rem;
-  }
-  // &__fixed {
-  //   position: fixed;
-  //   flex-direction: row;
-  //   opacity: 1;
-  //   &-container {
-  //     min-width: auto;
-  //     padding: 0px;
-  //     transform: 0.6s;
-  //   }
-  // }
 }
 
-// .modal {
-//   margin: auto;
-//   height: 500px;
-//   width: 500px;
-//   max-width: 1280px;
-//   padding: 10px;
-//   background-color: pink;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-// }
+.login__button {
+  border: none;
+  background-color: transparent;
+  color: #fff;
+  margin-left:auto;
+  font-size: 16px;
+  transition: color 250ms ease;
+  &:hover{
+    color: orange;
+  }
+}

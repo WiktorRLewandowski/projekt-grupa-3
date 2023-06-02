@@ -14,7 +14,12 @@
       <nav class="navigation">
         <ul class="navigation__list">
           <li>
-            <a class="navigation__link navigation__link--home" href="../src/index.html">home</a>
+            <a
+              id="home-link"
+              class="navigation__link navigation__link--home"
+              href="../src/index.html"
+              >home</a
+            >
           </li>
           <li>
             <a id="lib-link" class="navigation__link navigation__link" href="./my-library.html"
@@ -23,12 +28,16 @@
           </li>
           <li>
             <div class="notLoggedIn" id="not-logged-in">
-              <button data-open-modal class="login__button">Login</button>
+              <button data-open-modal class="login__button" aria-label="User sign-in">
+                <i class="fa-solid fa-user login__button-icon"></i>
+              </button>
             </div>
           </li>
           <li>
             <div class="loggedIn" id="logged-in">
-              <button id="logout__btn">Logout</button>
+              <button id="logout__btn" class="login__button" aria-label="User logout">
+                <i class="fa-solid fa-right-from-bracket login__button-icon"></i>
+              </button>
             </div>
           </li>
         </ul>
@@ -78,4 +87,6 @@
       />
     </picture>
   </div>
+  <button class="button-watched watched-hidden"></button>
+  <button class="button-queue queue-hidden"></button>
 </header>

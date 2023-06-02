@@ -5,6 +5,7 @@ import { refs } from './refs';
 import { watched, queue, setWatched, setQueue } from './localStorage';
 import { makeMoviePoster } from './makeMoviePoster';
 import { makeGenresList } from './genres';
+import { reloadWatchedOnly, reloadQueueOnly } from './reloadLibrary';
 
 // const IMG_URL = 'https://image.tmdb.org/t/p/w500'; // gupia kopia
 
@@ -80,35 +81,37 @@ export function imageButtonClick(movie) {
   window.addEventListener('keydown', handleEvent);
 
   // reload library only after remove movie from watched or queue
-  function reloadLibOnly() {
-    const currentPage = window.location.href;
-    const libraryPage = document.getElementById('lib-link');
+  // function reloadLibOnly() {
+  //   const currentPage = window.location.href;
+  //   const libraryPage = document.getElementById('lib-link');
 
-    if (currentPage === libraryPage.href) {
-      location.reload();
-    }
-  }
+  //   if (currentPage == libraryPage.href) {
+  //     location.reload();
+  //   }
+  // }
 
   // trailer -->
   function playTrailer() {
     fetchID(movie.id, '/videos')
       .then(videoData => {
-        console.log(videoData);
+        // console.log(videoData);
 
         const videosArray = videoData.results;
-        console.log(videosArray);
+        // console.log(videosArray);
         const youtubeVideo = videosArray.find(
           video => video.site === 'YouTube' && video.name.includes('Trailer'),
         );
         if (youtubeVideo) {
           modalContent.classList.add('is-hidden-modal');
           const videoUrl = `https://www.youtube.com/embed/${youtubeVideo.key}`;
-          console.log(videoUrl);
+          // console.log(videoUrl);
           modal.innerHTML += `
           <div class="video-container">
             <iframe class="video-iframe" src="${videoUrl}" frameborder="0" allowfullscreen></iframe>
           </div>
         `;
+        } else {
+          buttonPoster.classList.add("modal-content__movie-poster-container__no-trailer");
         }
       })
       .catch(error => {
@@ -118,9 +121,11 @@ export function imageButtonClick(movie) {
 
   const buttonPoster = document.querySelector('.modal-content__movie-poster-container');
   buttonPoster.addEventListener('click', playTrailer);
+  
 
   const modalContent = document.querySelector('.modal-content');
 
+  // BEGIN OF LOCAL STORAGE
   // add to watched btn -->
   addWatchedClick();
 
@@ -141,7 +146,9 @@ export function imageButtonClick(movie) {
       watched.splice(watched.indexOf(movie.id), 1);
       setWatched(watched);
       watchedBtn.textContent = 'add to watched';
-      reloadLibOnly();
+      // reloadLibOnly();
+      reloadWatchedOnly();
+      handleModalClose();
       return;
     }
     watched.push(movie.id);
@@ -169,7 +176,10 @@ export function imageButtonClick(movie) {
       queue.splice(queue.indexOf(movie.id), 1);
       setQueue(queue);
       queueBtn.textContent = 'add to queue';
-      reloadLibOnly();
+      // alert('here');
+      // reloadLibOnly();
+      reloadQueueOnly();
+      handleModalClose();
       return;
     }
 
@@ -177,6 +187,7 @@ export function imageButtonClick(movie) {
     setQueue(queue);
     queueBtn.textContent = 'remove from queue';
   }
+  // END OF LOCAL STORAGE
 
   // sound effects
   const btnClickSound = document.querySelector('#btn-click-sound');

@@ -36,7 +36,7 @@ const options = {
 
 const galleryObserver = new IntersectionObserver(async entries => {
   if (entries[0].isIntersecting) {
-    console.log('obserwuje');
+    // console.log('obserwuje');
     if (page < totalPages) {
       page += 1;
       if (fetchSearchFlag) {

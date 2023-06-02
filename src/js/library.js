@@ -1,4 +1,5 @@
 // NEEDED IMPORTS:
+import { refs } from './refs';
 import { watched, queue } from './localStorage';
 import { fetchID } from './fetchMovies';
 import { renderMovies } from './renderMovies';
@@ -22,9 +23,20 @@ queueBtnLib.addEventListener('click', queueBtnLibClick);
 
 // on load library watched is showed
 window.addEventListener('load', () => {
+  const currentPage = window.location.href;
+  const libraryPage = document.getElementById('lib-link');
+  const homePage = document.getElementById('home-link');
+
+  if (currentPage == homePage) {
+    // console.log('home page works');
+  }
+
+  if (currentPage == libraryPage) {
+    // console.log('library works?');
+    watchedBtnLibClick();
+    queueBtnLib.innerHTML = `QUEUE: ${queue.length}`;
+  }
   // console.log('load run');
-  watchedBtnLibClick();
-  queueBtnLib.innerHTML = `QUEUE: ${queue.length}`;
 });
 
 // on open library 'watched' is active
@@ -38,7 +50,7 @@ function watchedBtnLibClick() {
   if (watched.length === 0) {
     libQueue.classList.add('is-hidden');
     libWatched.classList.remove('is-hidden');
-    watchedGIF.scrollIntoView();
+    // watchedGIF.scrollIntoView();
     // divGallery.classList.add('.is-hidden');
   }
   if ((divGallery.innerHTML = queue)) {
@@ -69,7 +81,7 @@ function queueBtnLibClick() {
   if (queue.length === 0) {
     libWatched.classList.add('is-hidden');
     libQueue.classList.remove('is-hidden');
-    queueGIF.scrollIntoView();
+    // queueGIF.scrollIntoView();
     // divGallery.classList.add('.is-hidden');
   }
   if ((divGallery.innerHTML = watched)) {
@@ -93,3 +105,6 @@ function showQueueMovies() {
       .catch(error => console.log(error));
   });
 }
+
+export { watchedBtnLibClick, queueBtnLibClick };
+
